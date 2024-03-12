@@ -1,4 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { CustomIMG } from './CustomIMG';
 
 export const CustomButton = ({
   btnText,
@@ -8,9 +9,9 @@ export const CustomButton = ({
   borderR = 40,
   borderW = 1,
   borderC = "",
-  colorT = "#fff"
+  colorT = "#fff",
+  img = false,
 }) => {
-
   return (
     <TouchableOpacity style={[styles.btn, {
       backgroundColor: bckColor,
@@ -20,6 +21,7 @@ export const CustomButton = ({
       borderWidth: borderW,
       borderColor: borderC ? borderC : bckColor
     }]}>
+      {img ? <CustomIMG width={32} height={32} img={img} /> : ""}
       <Text style={[styles.btnText, {
         color: colorT,
       }]}>{btnText}</Text>
@@ -29,8 +31,10 @@ export const CustomButton = ({
 
 const styles = StyleSheet.create({
   btn: {
+    flexDirection: "row",
     justifyContent: 'center',
     alignItems: 'center',
+    gap: 12,
     width: "90%",
     height: 64,
   },

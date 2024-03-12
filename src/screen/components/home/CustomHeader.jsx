@@ -1,13 +1,19 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { CustomLogo } from "../ui/CustomLogo.jsx";
+import { CustomIMG } from "../ui/CustomIMG.jsx";
 
-export const CustomHeader = ({ tittle, subTittle }) => {
+export const CustomHeader = ({ tittle, subTittle, flex = 1, center = "", width = "100%", wimg = 240, img = "authLogo", gap = 0 }) => {
   return (
-    <View style={styles.header}>
-      <CustomLogo width={240} height={240} />
-      <View style={styles.welcome}>
+    <View style={[styles.header, { gap: gap, }]}>
+      <CustomIMG width={wimg} height={wimg} img={img} />
+      <View style={[styles.textBox, {
+        flex: flex,
+        alignItems: center,
+        justifyContent: center,
+      }]}>
         <Text style={styles.text}>{tittle}</Text>
-        <Text style={styles.subText}>
+        <Text style={[styles.subText, {
+          width: width,
+        }]}>
           {subTittle}
         </Text>
       </View>
@@ -22,8 +28,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
   },
-  welcome: {
-    flex: 1,
+  textBox: {
     width: "90%",
   },
   text: {

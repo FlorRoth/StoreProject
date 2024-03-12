@@ -1,67 +1,11 @@
-import { StyleSheet, View } from "react-native";
-import { CustomButton } from "./src/screen/components/ui/CustomButton.jsx";
-import { CustomInput } from "./src/screen/components/ui/CustomInput.jsx";
-import { CustomHeader } from "./src/screen/components/home/CustomHeader.jsx";
+import LoginScreen from "./src/screen/LoginScreen";
+import SignUpScreen from "./src/screen/SignUpScreen";
+import SuccessfulScreen from "./src/screen/SuccessfulScreen";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <CustomHeader
-        tittle={"Welcome!"}
-        subTittle={"please login or sign up to continue our app"}
-      />
-      <View style={styles.form}>
-        <CustomInput text={"Email"} />
-        <CustomInput text={"Password"} />
-        <View style={styles.buttons}>
-          <CustomButton btnText={"Login"} />
-          <View style={styles.bar}></View>
-          <CustomButton
-            btnText={"Continue with Facebook"}
-            bckColor={"#3b5998"}
-          />
-          <CustomButton
-            btnText={"Continue with Google"}
-            bckColor={"#fff"}
-            borderC={"#ddd"}
-            colorT={"#606060"}
-          />
-          <CustomButton
-            btnText={"Continue with Apple"}
-            bckColor={"#fff"}
-            borderC={"#ddd"}
-            colorT={"#606060"}
-          />
-        </View>
-      </View>
-    </View>
+    <SignUpScreen />
+    // <LoginScreen />
+    // <SuccessfulScreen />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 40,
-    marginBottom: 10,
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  form: {
-    flex: 5,
-    alignItems: "center",
-    justifyContent: "space-around",
-    width: "100%",
-  },
-  bar: {
-    backgroundColor: "#ccc",
-    height: 1,
-    width: "90%",
-    marginVertical: 12,
-  },
-  buttons: {
-    marginTop: 20,
-    width: "100%",
-    alignItems: "center",
-  },
-});
