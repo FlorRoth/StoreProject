@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, StyleSheet, Text, View, Image } from "react-native";
+import { FlatList, StyleSheet, Text, View, Image,ScrollView } from "react-native";
 import { Navbar } from "../components/navigation/navbar";
 import { Header } from "../components/navigation/header";
 import { CarouselCategories } from "../components/homeScreen/carouselCategories";
@@ -40,6 +40,7 @@ const RecommendedMovies = [
 export const HomeScreen = () => {
   return (
     <View style={styles.container}>
+      <ScrollView>
       <View style={styles.welcomeContainer}>
         <Text style={styles.welcomeTitle}>Bienvenido,</Text>
         <Text style={styles.subTitle}>KWIK-E-MART</Text>
@@ -61,6 +62,7 @@ export const HomeScreen = () => {
           style={{ paddingHorizontal: 10 }}
         />
       </View>
+      </ScrollView>
     </View>
   );
 };
