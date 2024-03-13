@@ -1,12 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { HomeScreen } from './src/screen/HomeScreen';
+import { SafeAreaView, StyleSheet, View, ScrollView } from "react-native";
+import { HomeScreen } from "./src/screen/HomeScreen";
+import { Navbar } from "./src/components/navigation/navbar";
+import { Header } from "./src/components/navigation/header";
+
 export default function App() {
   return (
     <View style={styles.container}>
-    <SafeAreaView style={styles.container}>
-      <HomeScreen/>
-    </SafeAreaView>
+      <SafeAreaView style={styles.container}>
+        <Header />
+        <ScrollView>
+          <HomeScreen />
+        </ScrollView>
+        <Navbar />
+      </SafeAreaView>
     </View>
   );
 }
@@ -14,6 +20,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#8C8C8C',
+    backgroundColor: "#FFFFFF",
   },
 });

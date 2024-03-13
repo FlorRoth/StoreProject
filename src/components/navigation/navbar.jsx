@@ -43,7 +43,7 @@ export const Navbar = () => {
 };
 const styles = StyleSheet.create({
   container: {
-    position: "absolute",
+    position:"absolute",
     flexDirection: "row",
     bottom: 0,
     backgroundColor: "#FFFFFF",
@@ -59,6 +59,8 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     justifyContent: "space-around",
     alignItems: "center",
+    marginTop:5,
+
   },
   imgs: {
     justifyContent: "space-between",
