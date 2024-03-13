@@ -14,14 +14,14 @@ export const Header = () => {
         style={styles.imgs}
         onPress={() => Alert.alert("menu pressed")}
       >
-        <Image source={require("../../assets/header/menu.png")} />
+        <Image source={require("../../../assets/header/menu.png")} />
       </Pressable>
 
       <Pressable
         style={styles.imgs}
         onPress={() => Alert.alert("avatar pressed")}
       >
-        <Image source={require("../../assets/header/avatar.png")} />
+        <Image source={require("../../../assets/header/avatar.png")} />
       </Pressable>
     </View>
   );

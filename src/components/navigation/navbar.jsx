@@ -15,7 +15,7 @@ export const Navbar = () => {
         style={[styles.imgs, { flexDirection: "row" }]}
         onPress={() => Alert.alert("home pressed")}
       >
-        <Image source={require("../../assets/navbar/home.png")} />
+        <Image source={require("../../../assets/navbar/home.png")} />
         <View style={styles.text}>
           <Text>Home</Text>
         </View>
@@ -24,19 +24,19 @@ export const Navbar = () => {
         style={styles.imgs}
         onPress={() => Alert.alert("cart pressed")}
       >
-        <Image source={require("../../assets/navbar/cart.png")} />
+        <Image source={require("../../../assets/navbar/cart.png")} />
       </Pressable>
       <Pressable
         style={styles.imgs}
         onPress={() => Alert.alert("notification pressed")}
       >
-        <Image source={require("../../assets/navbar/notification.png")} />
+        <Image source={require("../../../assets/navbar/notification.png")} />
       </Pressable>
       <Pressable
         style={styles.imgs}
         onPress={() => Alert.alert("profile pressed")}
       >
-        <Image source={require("../../assets/navbar/profile.png")} />
+        <Image source={require("../../../assets/navbar/profile.png")} />
       </Pressable>
     </View>
   );

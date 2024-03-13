@@ -1,12 +1,14 @@
 import React from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
-import { Navbar } from "../components/navbar";
-import { Header } from "../components/header";
+import { Navbar } from "../components/navigation/navbar";
+import { Header } from "../components/navigation/header";
+import {CarouselCategories} from "../components/homeScreen/carouselCategories";
 
 export const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Header />
+      <CarouselCategories/>
       <Navbar />
     </View>
   );
