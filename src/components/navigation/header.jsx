@@ -28,7 +28,6 @@ export const Header = () => {
 };
 const styles = StyleSheet.create({
   container: {
-    position: "absolute",
     flexDirection: "row",
     top: 0,
     backgroundColor: "#FFFFFF",
