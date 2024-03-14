@@ -65,6 +65,7 @@ export const productsStyles = StyleSheet.create({
         fontSize: 14,
         flex: 1,
         alignSelf: 'center',
+        textAlign: 'center',
         color: '#696969',
     },
 
