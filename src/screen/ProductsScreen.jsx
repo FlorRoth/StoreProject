@@ -7,7 +7,7 @@ import { ProductContext } from '../contexts/ProductContext';
 
 export default function Products() {
 
- 
+  
   const {state, getProducts} = useContext(ProductContext); 
       useEffect(() => {
           init();
@@ -20,6 +20,7 @@ export default function Products() {
 
 
   const renderProductsItem = ({item}) => {
+
     return (
       <TouchableOpacity
         style={productsStyles.cardProduct}
@@ -38,8 +39,8 @@ export default function Products() {
         <View style={productsStyles.cardProductFooter}>
           <View style={{ alignItems: 'center', justifyContent: 'center' }}>
             <Text numberOfLines={2} style={productsStyles.titleProduct}>{item.title}</Text>
-            <Text numberOfLines={3} style={productsStyles.productDescription}>{item.description}</Text>
-            <Text style={productsStyles.productPrice}>$ {item.price}</Text>
+            <Text numberOfLines={3} style={productsStyles.descriptionProduct}>{item.description}</Text>
+            <Text style={productsStyles.priceProduct}>$ {item.price.toFixed(2)}</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -49,7 +50,9 @@ export default function Products() {
 
   return (
     <View>
-      {state.products.length > 0 ?
+     {state.isLoading ? (
+        <ActivityIndicator size="large" color="#000000" />
+      ) : (
       <View style={productsStyles.productsContainer}>
             <View style={productsStyles.headerContainer}>
               <TouchableOpacity>
@@ -79,9 +82,7 @@ export default function Products() {
                 /> 
             </View>
       </View> 
-     :
-      <ActivityIndicator size="large" color="#000000" />
-    } 
+     )}
     </View>
 
 

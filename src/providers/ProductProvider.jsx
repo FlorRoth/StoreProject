@@ -6,7 +6,7 @@ import { axiosApi } from "../config/AxiosApi";
 
 const initialValues = {
   products: [],
-  isLoanding: true,
+  isLoading: true,
 }
 
 export const ProductProvider = ({ children }) => {
@@ -23,7 +23,7 @@ export const ProductProvider = ({ children }) => {
         type: types.product.getProducts,
         payload: {
            products: data,
-           isLoanding: false,
+           isLoading: false,
         }
       })
 
@@ -32,7 +32,7 @@ export const ProductProvider = ({ children }) => {
         type: types.product.getProducts,
         payload: {
            products: [],
-           isLoanding: false,
+           isLoading: false,
         }
       })
     }

@@ -8,7 +8,7 @@ export const ProductReducer = (state={}, action) => {
             return {
                 ...state,
                 products: action.payload.products,
-                isLoanding: false
+                isLoading: action.payload.isLoading
             }
 
         default:

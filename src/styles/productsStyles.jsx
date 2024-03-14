@@ -51,6 +51,9 @@ export const productsStyles = StyleSheet.create({
         width: "100%",
         borderRadius: 20,
         alignSelf: 'center',
+        borderColor: '#DDDDDD',
+        borderWidth: 1,
+        objectFit: "scale-down"
     },
 
     titleProduct: {
@@ -58,10 +61,11 @@ export const productsStyles = StyleSheet.create({
         flex: 1,
         alignSelf: 'center',
         color: "#000000",
+        textAlign: 'center',
         fontWeight: 'bold',
     },
 
-    productDescription: {
+    descriptionProduct: {
         fontSize: 14,
         flex: 1,
         alignSelf: 'center',
@@ -69,12 +73,13 @@ export const productsStyles = StyleSheet.create({
         color: '#696969',
     },
 
-    productPrice: {
+    priceProduct: {
         fontSize: 18,
         flex: 1,
         alignSelf: 'center',
         color: "#000000",
         fontWeight: 'bold',
+        marginTop: 5
     },
 
     productItemcontainer: {
@@ -83,7 +88,7 @@ export const productsStyles = StyleSheet.create({
     },
 
     productItemImage: {
-        width: '100%',
+        width: '200%',
         height: "100%"
     },
 
