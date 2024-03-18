@@ -3,12 +3,15 @@ import { StyleSheet, Text, View,FlatList, TouchableOpacity, Image, SafeAreaView,
 import { productsStyles } from '../styles/productsStyles';
 import { globalStyles } from '../styles/globalStyles';
 import { ProductContext } from '../contexts/ProductContext';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function Products() {
 
-  
+  const navigation = useNavigation();
   const {state, getProducts} = useContext(ProductContext); 
+
+
       useEffect(() => {
           init();
       },[]);
@@ -16,7 +19,7 @@ export default function Products() {
 
       const init = async () => {
         getProducts();
-      }
+    }
 
 
   const renderProductsItem = ({item}) => {
@@ -24,9 +27,7 @@ export default function Products() {
     return (
       <TouchableOpacity
         style={productsStyles.cardProduct}
-        onPress={() => {
-          clickEventListener()
-        }}>
+        onPress={()=>navigation.navigate("ProductItem", { item: item })}>
         <View style={productsStyles.cardProductHeader}>
           <Image
             style={{height: 22, width: 22}}
@@ -49,7 +50,7 @@ export default function Products() {
 
 
   return (
-    <View>
+    <View  style={{ flex: 1}}>
      {state.isLoading ? (
         <ActivityIndicator size="large" color="#000000" />
       ) : (
