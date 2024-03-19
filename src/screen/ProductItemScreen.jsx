@@ -1,16 +1,23 @@
 
-import React, { useContext, useState } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Image, Alert, ScrollView, Button } from 'react-native'
-import { productsStyles } from '../styles/productsStyles'
-import { globalStyles } from '../styles/globalStyles'
-import { ProductContext } from '../contexts/ProductContext'
+import React, { useContext, useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Alert, ScrollView, Button } from 'react-native';
+import { productsStyles } from '../styles/productsStyles';
+import { globalStyles } from '../styles/globalStyles';
+import { ProductContext } from '../contexts/ProductContext';
+import { useNavigation } from '@react-navigation/native';
 
 export default ProductItem = ({ route }) => {
   const { item } = route.params;
   const [quantity, setQuantity] = useState(0); 
   const [selectedSize, setSelectedSize] = useState(null);
   const {state, toggleFavorite} = useContext(ProductContext); 
+  const navigation = useNavigation();
 
+  
+  if (!item) {
+    navigation.navigate('PageNotFound');
+    return null;
+  }
   
   const decreaseQuantity = () => {
     if (quantity > 0) {
@@ -176,8 +183,6 @@ export default ProductItem = ({ route }) => {
               </TouchableOpacity>
             </View>
         </View>
-
-
     </View>
   )
 }
