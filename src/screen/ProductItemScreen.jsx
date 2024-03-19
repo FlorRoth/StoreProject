@@ -1,13 +1,16 @@
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Image, Alert, ScrollView, Button } from 'react-native'
 import { productsStyles } from '../styles/productsStyles'
 import { globalStyles } from '../styles/globalStyles'
+import { ProductContext } from '../contexts/ProductContext'
 
 export default ProductItem = ({ route }) => {
   const { item } = route.params;
   const [quantity, setQuantity] = useState(0); 
   const [selectedSize, setSelectedSize] = useState(null);
+  const {state, toggleFavorite} = useContext(ProductContext); 
+
   
   const decreaseQuantity = () => {
     if (quantity > 0) {
@@ -108,11 +111,13 @@ export default ProductItem = ({ route }) => {
           />
 
           <View style={[productsStyles.favoriteProductFooter,productsStyles.shadow]}>
-                    <Image
-                      style={{height: 30, width: 30}}
-                      source={require('../../assets/favorite-white.png')}
-                    />
-                  </View>
+              <TouchableOpacity onPress={() => toggleFavorite(item.id)}>
+                      <Image
+                              style={{ height: 30, width: 30}}
+                              source={state.favorites.includes(item.id) ? require('../../assets/favorite-black.png') : require('../../assets/favorite-white.png') }
+                      />
+              </TouchableOpacity>
+          </View>
 
         </View>
 

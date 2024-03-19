@@ -9,13 +9,11 @@ import { useNavigation } from '@react-navigation/native';
 export default function Products() {
 
   const navigation = useNavigation();
-  const {state, getProducts} = useContext(ProductContext); 
-
+  const {state, getProducts,toggleFavorite} = useContext(ProductContext); 
 
       useEffect(() => {
           init();
       },[]);
-
 
       const init = async () => {
         getProducts();
@@ -29,10 +27,12 @@ export default function Products() {
         style={productsStyles.cardProduct}
         onPress={()=>navigation.navigate("ProductItem", { item: item })}>
         <View style={productsStyles.cardProductHeader}>
-          <Image
-            style={{height: 22, width: 22}}
-            source={require('../../assets/favorite.png')}
-          />
+          <TouchableOpacity onPress={() => toggleFavorite(item.id)}>
+            <Image
+                    style={{ height: 25, width: 25}}
+                    source={state.favorites.includes(item.id) ? require('../../assets/favorite-black.png') : require('../../assets/favorite.png') }
+            />
+          </TouchableOpacity>
 
 
         </View>
