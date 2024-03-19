@@ -6,7 +6,6 @@ export const productsStyles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         paddingHorizontal: 20,
-        marginTop: 30,
     },
 
     headerContainer: {
@@ -51,6 +50,9 @@ export const productsStyles = StyleSheet.create({
         width: "100%",
         borderRadius: 20,
         alignSelf: 'center',
+        borderColor: '#DDDDDD',
+        borderWidth: 1,
+        objectFit: "scale-down"
     },
 
     titleProduct: {
@@ -58,32 +60,35 @@ export const productsStyles = StyleSheet.create({
         flex: 1,
         alignSelf: 'center',
         color: "#000000",
+        textAlign: 'center',
         fontWeight: 'bold',
     },
 
-    productDescription: {
+    descriptionProduct: {
         fontSize: 14,
         flex: 1,
         alignSelf: 'center',
+        textAlign: 'center',
         color: '#696969',
     },
 
-    productPrice: {
+    priceProduct: {
         fontSize: 18,
         flex: 1,
         alignSelf: 'center',
         color: "#000000",
         fontWeight: 'bold',
+        marginTop: 5
     },
 
     productItemcontainer: {
         flex: 1,
-        marginTop: 20,
+        backgroundColor: "#fff"
     },
 
     productItemImage: {
-        width: '100%',
-        height: "100%"
+        height: "100%",
+        objectFit: "scale-down"
     },
 
     productItemTitle: {
@@ -94,10 +99,21 @@ export const productsStyles = StyleSheet.create({
 
     productDescriptionContainer: {
         flex: 1,
-        borderRadius: 20,
+        borderTopStartRadius: 20,
+        borderTopEndRadius: 20,
         backgroundColor: "#fff",
         marginTop: -10,
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
+        borderColor: '#DDDDDD',
+        borderWidth: 1,
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 1,
+        shadowRadius: 3.84,
+        elevation: 10,
     },
 
     productPrice: {
@@ -108,9 +124,9 @@ export const productsStyles = StyleSheet.create({
     },
 
     productDescription: {
-        marginTop: 10,
         fontSize: 14,
         color: '#666666',
+        alignContent: "center",
     },
 
     star: {
@@ -121,18 +137,18 @@ export const productsStyles = StyleSheet.create({
 
     starContainer: {
         flexDirection: 'row',
-        marginTop: 10,
+        marginTop: 15
     },
 
     quantityContainer: {
-        marginTop: 25,
+        marginTop: 10,
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: '#EEEEEE',
         justifyContent: "space-between",
         paddingHorizontal: 7,
         height: 30,
-        width: 70,
+        width: 90,
         borderRadius: 40,
         fontWeight: '900',
         marginLeft: "auto"
@@ -156,31 +172,26 @@ export const productsStyles = StyleSheet.create({
         alignItems: 'center',
     },
 
+    btnSizeText: {
+          color: '#888888',
+          fontWeight: '700',
+    },
+
+    btnSizeSelected: {
+          backgroundColor: 'black',
+    },
+
+    btnSizeSelectedText: {
+          color: 'white'
+    },
+    
+      
+
     btnColor: {
         height: 18,
         width: 18,
         borderRadius: 30,
         marginVertical: 4,
-    },
-
-    contentColors: {
-
-        justifyContent: "center",
-        alignItems: 'center',
-        width: 35,
-        borderRadius: 40,
-        paddingVertical: 3,
-        backgroundColor: '#fff',
-        shadowColor: '#000',
-        shadowOffset: {
-          width: 0,
-          height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 3,
-        marginRight: 5
-
     },
 
     addToCartContainer: {
@@ -207,5 +218,36 @@ export const productsStyles = StyleSheet.create({
         color: '#FFFFFF',
         fontSize: 18,
         fontWeight: '700',
+    },
+
+    cartProductHeader: {
+        top: 2,
+        right: 20,
+        position: "absolute",
+        zIndex: 1,
+        borderRadius: 30,
+        borderColor: '#DDDDDD',
+        borderWidth: 1
+    },
+
+    favoriteProductFooter: {
+        bottom: 20,
+        right: 20,
+        position: "absolute",
+        zIndex: 1,
+        borderRadius: 30,
+        borderColor: '#DDDDDD',
+        borderWidth: 1
+    },
+
+    shadow: {
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 3
     }
 });
