@@ -1,11 +1,11 @@
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { CustomButton } from "../screen/components/ui/CustomButton.jsx";
 import { CustomInput } from "../screen/components/ui/CustomInput.jsx";
 import { CustomHeader } from "../screen/components/home/CustomHeader.jsx";
 
 export default function LoginScreen() {
   return (
-    <View style={styles.containerLogin}>
+    <ScrollView style={styles.containerLogin}>
       <CustomHeader
         tittle={"Welcome!"}
         subTittle={"please login or sign up to continue our app"}
@@ -13,6 +13,7 @@ export default function LoginScreen() {
       <View style={styles.form}>
         <CustomInput text={"Email"} />
         <CustomInput text={"Password"} />
+
         <View style={styles.buttons}>
           <CustomButton btnText={"Login"} />
           <View style={styles.bar}></View>
@@ -37,7 +38,7 @@ export default function LoginScreen() {
           />
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -47,11 +48,11 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
   form: {
-    flex: 5,
+    flex: 4,
     alignItems: "center",
     justifyContent: "space-around",
     width: "100%",
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     marginVertical: 12,
   },
   buttons: {
-    marginTop: 20,
+    marginTop: 8,
     width: "100%",
     alignItems: "center",
   },

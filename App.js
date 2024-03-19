@@ -4,8 +4,8 @@ import SuccessfulScreen from "./src/screen/SuccessfulScreen";
 
 export default function App() {
   return (
-    <SignUpScreen />
-    // <LoginScreen />
+    // <SignUpScreen />
+    <LoginScreen />
     // <SuccessfulScreen />
   );
 }

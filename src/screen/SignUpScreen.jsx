@@ -1,4 +1,4 @@
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { CustomButton } from "../screen/components/ui/CustomButton.jsx";
 import { CustomInput } from "../screen/components/ui/CustomInput.jsx";
 import { CustomHeader } from "../screen/components/home/CustomHeader.jsx";
@@ -9,7 +9,7 @@ export default function SignUpScreen() {
   const [isSelected, setSelection] = useState(false);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <CustomHeader tittle={"Sign Up"} subTittle={"Create an new account"} />
       <View style={styles.form}>
         <CustomInput text={"User Name"} />
@@ -19,6 +19,7 @@ export default function SignUpScreen() {
         <View
           style={{
             width: "89%",
+            marginTop: 24,
           }}
         >
           <BouncyCheckbox
@@ -37,18 +38,17 @@ export default function SignUpScreen() {
           <CustomButton btnText={"Register"} />
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     marginTop: 40,
-    marginBottom: 10,
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
   form: {
     flex: 5,
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   buttons: {
-    marginTop: 20,
+    marginTop: 32,
     width: "100%",
     alignItems: "center",
   },

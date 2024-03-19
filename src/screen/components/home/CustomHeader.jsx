@@ -23,10 +23,10 @@ export const CustomHeader = ({ tittle, subTittle, flex = 1, center = "", width =
 
 const styles = StyleSheet.create({
   header: {
-    flex: 3,
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
+    marginBottom: 36,
   },
   textBox: {
     width: "90%",
