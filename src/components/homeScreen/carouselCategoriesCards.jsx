@@ -5,7 +5,9 @@ import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 export const CarouselCategoriesCards = ({ image,title }) => {
   const navigation = useNavigation()
   return (
-    <TouchableOpacity  onPress={()=>navigation.navigate("ProductItem")}>
+    <TouchableOpacity  
+    // onPress={()=>navigation.navigate("ProductItem")}
+    >
       <View style={styles.categoriesButton}>
 
         <Image
