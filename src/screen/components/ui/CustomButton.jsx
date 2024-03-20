@@ -11,16 +11,19 @@ export const CustomButton = ({
   borderC = "",
   colorT = "#fff",
   img = false,
+  onSubmitChange = onSubmitChange,
 }) => {
   return (
-    <TouchableOpacity style={[styles.btn, {
-      backgroundColor: bckColor,
-      marginHorizontal: marginH,
-      marginVertical: marginV,
-      borderRadius: borderR,
-      borderWidth: borderW,
-      borderColor: borderC ? borderC : bckColor
-    }]}>
+    <TouchableOpacity
+      onPress={onSubmitChange}
+      style={[styles.btn, {
+        backgroundColor: bckColor,
+        marginHorizontal: marginH,
+        marginVertical: marginV,
+        borderRadius: borderR,
+        borderWidth: borderW,
+        borderColor: borderC ? borderC : bckColor
+      }]}>
       {img ? <CustomIMG width={32} height={32} img={img} /> : ""}
       <Text style={[styles.btnText, {
         color: colorT,

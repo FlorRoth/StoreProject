@@ -1,9 +1,21 @@
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { CustomButton } from "../screen/components/ui/CustomButton.jsx";
 import { CustomInput } from "../screen/components/ui/CustomInput.jsx";
 import { CustomHeader } from "../screen/components/home/CustomHeader.jsx";
+import { FormContext } from "../contexts/FormContext.jsx";
+import { useContext, useState } from "react";
+import { useLoginValidations } from "../hook/useLoginValidations.js";
+
+
+
 
 export default function LoginScreen() {
+  const [errorMessage, setErrorMessage] = useState("");
+  const { formState } = useContext(FormContext);
+  const onSubmitLogin = () => {
+    useLoginValidations(setErrorMessage, formState)
+  }
+
   return (
     <ScrollView style={styles.containerLogin}>
       <CustomHeader
@@ -11,11 +23,13 @@ export default function LoginScreen() {
         subTittle={"please login or sign up to continue our app"}
       />
       <View style={styles.form}>
-        <CustomInput text={"Email"} />
-        <CustomInput text={"Password"} />
-
+        <Text>{errorMessage}</Text>
+        <CustomInput text={"Email"} key={"email-address"} />
+        <CustomInput text={"Password"} password={true} />
         <View style={styles.buttons}>
-          <CustomButton btnText={"Login"} />
+          <CustomButton
+            onSubmitChange={() => onSubmitLogin()}
+            btnText={"Login"} />
           <View style={styles.bar}></View>
           <CustomButton
             btnText={"Continue with Facebook"}
@@ -64,7 +78,6 @@ const styles = StyleSheet.create({
     marginVertical: 12,
   },
   buttons: {
-    marginTop: 8,
     width: "100%",
     alignItems: "center",
   },

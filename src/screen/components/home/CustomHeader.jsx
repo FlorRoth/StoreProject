@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    marginBottom: 36,
+    marginBottom: 20,
   },
   textBox: {
     width: "90%",

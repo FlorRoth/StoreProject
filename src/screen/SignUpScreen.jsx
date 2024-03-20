@@ -13,7 +13,7 @@ export default function SignUpScreen() {
       <CustomHeader tittle={"Sign Up"} subTittle={"Create an new account"} />
       <View style={styles.form}>
         <CustomInput text={"User Name"} />
-        <CustomInput text={"Email"} />
+        <CustomInput text={"Email"} key={"email-address"} />
         <CustomInput text={"Password"} />
         <CustomInput text={"Confirm Password"} />
         <View
