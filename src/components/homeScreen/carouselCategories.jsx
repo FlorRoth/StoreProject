@@ -21,7 +21,7 @@ export const CarouselCategories = ({ name, dataProduct }) => {
       <FlatList
         data={dataProduct}
         renderItem={({ item }) => (
-          <CarouselCategoriesCards image={item.image} title={item.title} price={item.price} />
+          <CarouselCategoriesCards item={item}  />
         )}
         keyExtractor={(item) => item.id}
         horizontal
