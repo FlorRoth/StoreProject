@@ -10,12 +10,11 @@ import { useSignUpValidations } from "../hook/useSignUpValidations.js";
 export default function SignUpScreen() {
   const [isSelected, setSelection] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const { formState } = useContext(FormContext);
+  const { formState, postSignUp } = useContext(FormContext);
 
   const onSubmitLogin = () => {
     if (isSelected === true) {
-      console.log(formState);
-      useSignUpValidations(setErrorMessage, formState);
+      useSignUpValidations(setErrorMessage, formState, postSignUp);
       return
     }
     setErrorMessage("click en checkbox.");

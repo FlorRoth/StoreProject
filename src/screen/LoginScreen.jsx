@@ -6,14 +6,11 @@ import { FormContext } from "../contexts/FormContext.jsx";
 import { useContext, useState } from "react";
 import { useLoginValidations } from "../hook/useLoginValidations.js";
 
-
-
-
 export default function LoginScreen() {
   const [errorMessage, setErrorMessage] = useState("");
-  const { formState } = useContext(FormContext);
+  const { formState, postLogin } = useContext(FormContext);
   const onSubmitLogin = () => {
-    useLoginValidations(setErrorMessage, formState)
+    useLoginValidations(setErrorMessage, formState, postLogin)
   }
 
   return (
@@ -24,7 +21,7 @@ export default function LoginScreen() {
       />
       <View style={styles.form}>
         <Text>{errorMessage}</Text>
-        <CustomInput text={"Email"} input={"Email"}/>
+        <CustomInput text={"User Name"} input={"UserName"} />
         <CustomInput text={"Password"} input={"Password"} password={true} />
         <View style={styles.buttons}>
           <CustomButton
@@ -62,8 +59,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     flex: 1,
     backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
   form: {
     flex: 4,

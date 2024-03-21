@@ -1,4 +1,8 @@
-export const useSignUpValidations = (setErrorMessage, formState) => {
+export const useSignUpValidations = (
+  setErrorMessage,
+  formState,
+  postSignUp
+) => {
   setErrorMessage("");
   const {
     UserName = "",
@@ -16,7 +20,7 @@ export const useSignUpValidations = (setErrorMessage, formState) => {
     setErrorMessage("Todos los campos son obligatorios.");
     return;
   }
-  if (/\d/.test(UserName) || UserName.length < 2 || UserName.length > 24) {
+  if (UserName.length < 2 || UserName.length > 24) {
     setErrorMessage("Usuario invalido.");
     return;
   }
@@ -35,6 +39,7 @@ export const useSignUpValidations = (setErrorMessage, formState) => {
     return;
   }
   setErrorMessage("Registro completo.");
+  postSignUp();
   return;
 };
 

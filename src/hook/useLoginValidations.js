@@ -1,24 +1,18 @@
-export const useLoginValidations = (setErrorMessage, formState) => {
-  const { Email = "", Password = "" } = formState;
-  const email = Email.toLowerCase();
+export const useLoginValidations = (setErrorMessage, formState, postLogin) => {
+  const { UserName = "", Password = "" } = formState;
   setErrorMessage("");
-  if (email.trim() === "" || Password.trim() === "") {
+  if (UserName.trim() === "" || Password.trim() === "") {
     setErrorMessage("Todos los campos son obligatorios.");
     return;
   }
-  if (!validateEmail(email) || email.length > 35) {
-    setErrorMessage("E-mail o contraseña no valido.");
+  if (UserName.length < 2 || UserName.length > 24) {
+    setErrorMessage("Usuario o contraseña no valido.");
     return;
   }
   if (Password.length > 20 || Password.length <= 5) {
-    setErrorMessage("E-mail o contraseña no valido.");
+    setErrorMessage("Usuario o contraseña no valido.");
     return;
   }
+  postLogin();
   return;
-};
-
-const validateEmail = (Email) => {
-  const regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const validateEmail = regEx.test(Email);
-  return validateEmail;
 };
