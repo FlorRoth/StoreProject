@@ -1,21 +1,39 @@
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { CustomButton } from "../screen/components/ui/CustomButton.jsx";
 import { CustomInput } from "../screen/components/ui/CustomInput.jsx";
 import { CustomHeader } from "../screen/components/home/CustomHeader.jsx";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
+import { FormContext } from "../contexts/FormContext.jsx";
+import { useSignUpValidations } from "../hook/useSignUpValidations.js";
 
 export default function SignUpScreen() {
   const [isSelected, setSelection] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const { formState } = useContext(FormContext);
+
+  const onSubmitLogin = () => {
+    if (isSelected === true) {
+      console.log(formState);
+      useSignUpValidations(setErrorMessage, formState);
+      return
+    }
+    setErrorMessage("click en checkbox.");
+  };
 
   return (
     <ScrollView style={styles.container}>
       <CustomHeader tittle={"Sign Up"} subTittle={"Create an new account"} />
       <View style={styles.form}>
-        <CustomInput text={"User Name"} />
-        <CustomInput text={"Email"} key={"email-address"} />
-        <CustomInput text={"Password"} />
-        <CustomInput text={"Confirm Password"} />
+        <Text>{errorMessage}</Text>
+        <CustomInput text={"User Name"} input={"UserName"} />
+        <CustomInput text={"Email"} input={"Email"} />
+        <CustomInput text={"Password"} input={"Password"} password={true} />
+        <CustomInput
+          text={"Confirm Password"}
+          input={"ConfirmPassword"}
+          password={true}
+        />
         <View
           style={{
             width: "89%",
@@ -35,7 +53,10 @@ export default function SignUpScreen() {
           />
         </View>
         <View style={styles.buttons}>
-          <CustomButton btnText={"Register"} />
+          <CustomButton
+            onSubmitChange={() => onSubmitLogin()}
+            btnText={"Register"}
+          />
         </View>
       </View>
     </ScrollView>

@@ -24,8 +24,8 @@ export default function LoginScreen() {
       />
       <View style={styles.form}>
         <Text>{errorMessage}</Text>
-        <CustomInput text={"Email"} key={"email-address"} />
-        <CustomInput text={"Password"} password={true} />
+        <CustomInput text={"Email"} input={"Email"}/>
+        <CustomInput text={"Password"} input={"Password"} password={true} />
         <View style={styles.buttons}>
           <CustomButton
             onSubmitChange={() => onSubmitLogin()}

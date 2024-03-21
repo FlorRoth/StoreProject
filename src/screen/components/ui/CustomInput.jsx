@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { useForm } from "../../../hook/useForm";
 
-export const CustomInput = ({ text, mode = "text", password = false }) => {
+export const CustomInput = ({ text, input, mode = "text", password = false }) => {
   const { onChangeInput } = useForm();
 
   return (
@@ -13,7 +13,7 @@ export const CustomInput = ({ text, mode = "text", password = false }) => {
           secureTextEntry={password}
           inputMode={mode}
           placeholderTextColor={"#000"}
-          onChangeText={(value) => onChangeInput(text, value)}
+          onChangeText={(value) => onChangeInput(input, value)}
         />
       </View>
     </View>

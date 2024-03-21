@@ -6,8 +6,8 @@ import SuccessfulScreen from "./src/screen/SuccessfulScreen";
 export default function App() {
   return (
     <FormProvider>
-      {/* <SignUpScreen /> */}
-      <LoginScreen />
+      <SignUpScreen />
+      {/* <LoginScreen /> */}
       {/* <SuccessfulScreen /> */}
     </FormProvider>
   );

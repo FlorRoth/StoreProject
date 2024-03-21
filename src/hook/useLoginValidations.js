@@ -1,9 +1,3 @@
-const validateEmail = (Email) => {
-  const regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const validateEmail = regEx.test(Email);
-  return validateEmail;
-};
-
 export const useLoginValidations = (setErrorMessage, formState) => {
   const { Email = "", Password = "" } = formState;
   const email = Email.toLowerCase();
@@ -20,6 +14,11 @@ export const useLoginValidations = (setErrorMessage, formState) => {
     setErrorMessage("E-mail o contraseña no valido.");
     return;
   }
-
   return;
+};
+
+const validateEmail = (Email) => {
+  const regEx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const validateEmail = regEx.test(Email);
+  return validateEmail;
 };

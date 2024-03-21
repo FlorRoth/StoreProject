@@ -11,7 +11,7 @@ export const CustomButton = ({
   borderC = "",
   colorT = "#fff",
   img = false,
-  onSubmitChange = onSubmitChange,
+  onSubmitChange,
 }) => {
   return (
     <TouchableOpacity
