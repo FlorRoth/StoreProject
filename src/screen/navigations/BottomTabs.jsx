@@ -17,6 +17,7 @@ import PageNotFound from "../404Screen.jsx";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
+
 const Tab = createBottomTabNavigator();
 export const BottomTabs = () => {
   return (
@@ -38,15 +39,15 @@ export const BottomTabs = () => {
         name="inicio"
         component={StackNavigators}
         options={{
-          tabBarIcon: () => <Ionicons name="home" size={32} color="black" />,
+          tabBarIcon: ({focused}) => <Ionicons name="home" size={32} color={focused ? "black" : "grey"} />,
         }}
       />
       <Tab.Screen
         name="Products"
         component={Products}
         options={{
-          tabBarIcon: () => (
-            <Ionicons name="pricetags" size={32} color="black" />
+          tabBarIcon: ({focused}) => (
+            <Ionicons name="pricetags" size={32} color={focused ? "black" : "grey"} />
           ),
         }}
       />
@@ -54,15 +55,15 @@ export const BottomTabs = () => {
         name="Categorias"
         component={PageNotFound}
         options={{
-          tabBarIcon: () => <Ionicons name="options" size={32} color="black" />,
+          tabBarIcon: ({focused}) => <Ionicons name="options" size={32} color={focused ? "black" : "grey"} />,
         }}
       />
       <Tab.Screen
         name="Profile"
         component={PageNotFound}
         options={{
-          tabBarIcon: () => (
-            <Ionicons name="person" size={30} color="black" />
+          tabBarIcon: ({focused}) => (
+            <Ionicons name="person" size={30} color={focused ? "black" : "grey"} />
           )
         }}
       />
@@ -70,8 +71,8 @@ export const BottomTabs = () => {
         name="Carrito"
         component={PageNotFound}
         options={{
-          tabBarIcon: () => (
-            <Ionicons name="cart" size={30} color="black" />
+          tabBarIcon: ({focused}) => (
+            <Ionicons name="cart" size={30} color={focused ? "black" : "grey"} />
           )
         }}
       />
