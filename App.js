@@ -1,14 +1,38 @@
-import { FormProvider } from "./src/providers/FormProvider";
-import LoginScreen from "./src/screen/LoginScreen";
-import SignUpScreen from "./src/screen/SignUpScreen";
-import SuccessfulScreen from "./src/screen/SuccessfulScreen";
+import "react-native-gesture-handler";
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  ScrollView,
+  StatusBar,
+} from "react-native";
+import { HomeScreen } from "./src/screen/HomeScreen";
+import { Navbar } from "./src/components/navigation/navbar";
+import { Header } from "./src/components/navigation/header";
+import { NavigationContainer } from "@react-navigation/native";
+import { StackNavigators } from "./src/screen/navigations/StackNavigators";
+import { ProductProvider } from "./src/providers/ProductProvider";
+import { BottomTabs } from "./src/screen/navigations/BottomTabs";
 
 export default function App() {
   return (
-    <FormProvider>
-      {/* <SignUpScreen /> */}
-      <LoginScreen />
-      {/* <SuccessfulScreen /> */}
-    </FormProvider>
+    <NavigationContainer>
+      <View style={styles.container}>
+        <StatusBar />
+        <SafeAreaView style={styles.container}>
+        <ProductProvider>
+            <BottomTabs/>
+          </ProductProvider>
+        </SafeAreaView>
+      </View>
+    </NavigationContainer>
   );
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FFFFFF",
+  },
+});
