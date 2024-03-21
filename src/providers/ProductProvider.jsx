@@ -54,7 +54,6 @@ export const ProductProvider = ({ children }) => {
    
     try {
       const {data} = await axiosApi.get('/products/categories')
-     //console.log(data);
       dispatch({
         type: types.categorie.getCategories,
         payload: {

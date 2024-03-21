@@ -21,7 +21,6 @@ export default function Products() {
 
 
   const renderProductsItem = ({item}) => {
-
     return (
       <TouchableOpacity
         style={productsStyles.cardProduct}

@@ -2,18 +2,18 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 
-export const CarouselCategoriesCards = ({ image, title, price }) => {
+export const CarouselCategoriesCards = ({ item }) => {
   const navigation = useNavigation();
   return (
-    <TouchableOpacity  onPress={() => navigation.navigate("Products")}>
+    <TouchableOpacity   onPress={()=>navigation.navigate("ProductItem", { item: item })}>
       <View style={styles.categoriesButton}>
         <Image
           style={{ width: "100%", height: "100%", borderRadius: 20 }}
-          source={{ uri: image }}
+          source={{ uri: item.image }}
         />
-        <Text  numberOfLines={2} ellipsizeMode="tail"  style={styles.text}>{title}</Text>
+        <Text  numberOfLines={2} ellipsizeMode="tail"  style={styles.text}>{item.title}</Text>
 
-        <Text style={styles.textPrice}>{`$${price}`}</Text>
+        <Text style={styles.textPrice}>{`$${item.price}`}</Text>
       </View>
     </TouchableOpacity>
   );
