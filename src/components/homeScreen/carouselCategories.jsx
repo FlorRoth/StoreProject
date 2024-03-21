@@ -7,17 +7,21 @@ import {
   FlatList,
 } from "react-native";
 import { CarouselCategoriesCards } from "./carouselCategoriesCards";
+import { ProductContext } from '../../contexts/ProductContext';
+
 
 export const CarouselCategories = ({ name, dataProduct }) => {
+  
+
   return (
     <View style={styles.container}>
       
       <Text style={styles.text}>{name.toUpperCase()}</Text>
-
+    
       <FlatList
         data={dataProduct}
         renderItem={({ item }) => (
-          <CarouselCategoriesCards image={item.img} title={item.titleMovie} />
+          <CarouselCategoriesCards image={item.image} title={item.title} price={item.price} />
         )}
         keyExtractor={(item) => item.id}
         horizontal
@@ -32,7 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     borderRadius: 10,
     shadowColor: "black",
-    height: 234,
+    height: 280,
     width: "100%",
     shadowOffset: {
       width: 0,

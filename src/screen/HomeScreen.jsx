@@ -9,6 +9,9 @@ import {
 } from "react-native";
 import { Navbar } from "../components/navigation/navbar";
 import { Header } from "../components/navigation/header";
+import { ProductContext } from '../contexts/ProductContext';
+
+import { useContext, useEffect, useState } from 'react';
 
 import { CarouselCategories } from "../components/homeScreen/carouselCategories";
 const categories = [
@@ -45,12 +48,32 @@ const RecommendedMovies = [
   },
 ];
 
+
+
+
 export const HomeScreen = () => {
+  const {state, getProducts,getCategories,toggleFavorite} = useContext(ProductContext); 
+
+      useEffect(() => {
+          init();
+      },[]);
+
+      const init = async () => {
+        getCategories();
+        getProducts();
+    
+
+    }
+
+    const productsByCategorie =(categorie)=>{
+      const products= state.products
+      return products.filter(producto => producto.category===categorie)
+    }
   return (
     <View style={styles.container}>
       
         <FlatList
-          data={categories}
+          data={state.categories}
           ListHeaderComponent={() => (
             <View style={styles.welcomeContainer}>
           <Text style={styles.welcomeTitle}>Bienvenido,</Text>
@@ -65,7 +88,7 @@ export const HomeScreen = () => {
         </View>
           )}
           renderItem={({ item }) => (
-            <CarouselCategories name={item} dataProduct={RecommendedMovies} />
+            <CarouselCategories name={item} dataProduct={productsByCategorie(item)} />
           )}
           keyExtractor={(item) => item.id}
           style={{ paddingHorizontal: 10 }}

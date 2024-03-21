@@ -9,6 +9,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const initialValues = {
   products: [],
   favorites: [],
+  categories:[],
   isLoading: true,
 }
 
@@ -49,6 +50,29 @@ export const ProductProvider = ({ children }) => {
       })
     }
   }
+  const getCategories = async () => {
+   
+    try {
+      const {data} = await axiosApi.get('/products/categories')
+     //console.log(data);
+      dispatch({
+        type: types.categorie.getCategories,
+        payload: {
+          categories:data,
+          isLoading:false,
+        }
+      })
+    } catch (error) {
+      dispatch({
+        type: types.categorie.getCategories,
+        payload: {
+          categories: [],
+           isLoading: false,
+        }
+      })
+    }
+  }
+
 
   const toggleFavorite = (productId) => {
       const favorites = state.favorites ? [...state.favorites] : [];
@@ -88,7 +112,8 @@ export const ProductProvider = ({ children }) => {
     <ProductContext.Provider value={{
         state,
         getProducts,
-        toggleFavorite
+        getCategories,
+        toggleFavorite,
       }}>
     {children}
     </ProductContext.Provider>
