@@ -11,11 +11,18 @@ export const ProductReducer = (state={}, action) => {
                 isLoading: action.payload.isLoading
             }
 
-        case  types.product.toggleFavorite:
+        case  types.favorite.toggleFavorite:
             return {
                 ...state,
                 favorites: action.payload.favorites,
             }
+            case  types.categorie.getCategories:
+                return {
+                    ...state,
+                    categories: action.payload.categories,
+                    isLoading: action.payload.isLoading,
+
+                }
 
         default:
             return state;

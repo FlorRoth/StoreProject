@@ -6,6 +6,8 @@ export const types = {
 
     favorite: {
             toggleFavorite: 'TOGGLE FAVORITES [FAVORITE] '
-    }
-
+    },
+    categorie: {
+        getCategories: 'GET CATEGORIES [CATEGORIE]'
+},
 };

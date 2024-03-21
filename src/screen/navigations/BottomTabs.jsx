@@ -43,7 +43,7 @@ export const BottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Products"
+        name="Productos"
         component={Products}
         options={{
           tabBarIcon: ({focused}) => (
