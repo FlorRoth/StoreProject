@@ -1,7 +1,15 @@
 import React from "react";
-import { FlatList, StyleSheet, Text, View, Image,ScrollView } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+} from "react-native";
 import { Navbar } from "../components/navigation/navbar";
 import { Header } from "../components/navigation/header";
+
 import { CarouselCategories } from "../components/homeScreen/carouselCategories";
 const categories = [
   "electronics",
@@ -40,36 +48,36 @@ const RecommendedMovies = [
 export const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      <ScrollView>
-      <View style={styles.welcomeContainer}>
-        <Text style={styles.welcomeTitle}>Bienvenido,</Text>
-        <Text style={styles.subTitle}>KWIK-E-MART</Text>
-        <Image
-          style={{ width: "100%", height: 150 }}
-          source={require("../../assets/Logo.png")}
-        />
-
-        <Text style={styles.categoriesTitle}>Productos Populares</Text>
-        <Text style={styles.categoriesSubtitle}>Por Categoria</Text>
-      </View>
-      <View>
+      
         <FlatList
           data={categories}
+          ListHeaderComponent={() => (
+            <View style={styles.welcomeContainer}>
+          <Text style={styles.welcomeTitle}>Bienvenido,</Text>
+          <Text style={styles.subTitle}>KWIK-E-MART</Text>
+          <Image
+            style={{ width: "100%", height: 150 }}
+            source={require("../../assets/Logo.png")}
+          />
+
+          <Text style={styles.categoriesTitle}>Productos Populares</Text>
+          <Text style={styles.categoriesSubtitle}>Por Categoria</Text>
+        </View>
+          )}
           renderItem={({ item }) => (
             <CarouselCategories name={item} dataProduct={RecommendedMovies} />
           )}
           keyExtractor={(item) => item.id}
           style={{ paddingHorizontal: 10 }}
         />
-      </View>
-      </ScrollView>
+
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     backgroundColor: "#FFFFFF",
   },
   welcomeContainer: {
