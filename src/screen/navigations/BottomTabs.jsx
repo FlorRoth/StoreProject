@@ -11,11 +11,9 @@ import {
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { HomeScreen } from "../HomeScreen";
 import { StackNavigators } from "./StackNavigators";
-import { useNavigation } from "@react-navigation/native";
 import Products from "../ProductsScreen";
 import PageNotFound from "../404Screen.jsx";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 
 const Tab = createBottomTabNavigator();
@@ -51,13 +49,7 @@ export const BottomTabs = () => {
           ),
         }}
       />
-      <Tab.Screen
-        name="Categorias"
-        component={PageNotFound}
-        options={{
-          tabBarIcon: ({focused}) => <Ionicons name="options" size={32} color={focused ? "black" : "grey"} />,
-        }}
-      />
+
       <Tab.Screen
         name="Profile"
         component={PageNotFound}

@@ -5,23 +5,29 @@ import {
   TouchableOpacity,
   Text,
   FlatList,
+  Pressable,
 } from "react-native";
 import { CarouselCategoriesCards } from "./carouselCategoriesCards";
-import { ProductContext } from '../../contexts/ProductContext';
-
+import { ProductContext } from "../../contexts/ProductContext";
+import { useNavigation } from "@react-navigation/native";
 
 export const CarouselCategories = ({ name, dataProduct }) => {
-  
-
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      
-      <Text style={styles.text}>{name.toUpperCase()}</Text>
-    
+      <Pressable style={styles.title}
+        onPress={() => navigation.navigate("Categories", { item: name })}
+      >
+        <Text style={styles.text}>{name.toUpperCase()}</Text>
+        <Text style={styles.text}>VER TODO</Text>
+      </Pressable>
+
       <FlatList
         data={dataProduct}
         renderItem={({ item }) => (
-          <CarouselCategoriesCards item={item}  />
+          <View>
+            <CarouselCategoriesCards item={item} />
+          </View>
         )}
         keyExtractor={(item) => item.id}
         horizontal
@@ -31,6 +37,11 @@ export const CarouselCategories = ({ name, dataProduct }) => {
 };
 
 const styles = StyleSheet.create({
+  title:{
+    flexDirection:'row',
+    justifyContent: "space-between",
+    width:'100%',
+  },
   container: {
     padding: 5,
     backgroundColor: "#FFFFFF",
@@ -46,12 +57,12 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     justifyContent: "space-evenly",
     alignItems: "left",
-    marginTop:20,
+    marginTop: 20,
   },
   text: {
     fontWeight: "bold",
     fontSize: 18,
-    padding:5,
-    textAlignVertical:'auto'
+    padding: 5,
+    textAlignVertical: "auto",
   },
 });
