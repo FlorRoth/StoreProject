@@ -53,7 +53,7 @@ export default function SignUpScreen() {
         </View>
         <View style={styles.buttons}>
           <CustomButton
-            onSubmitChange={() => onSubmitLogin()}
+            ButtonPress={() => onSubmitLogin()}
             btnText={"Register"}
           />
         </View>
@@ -64,11 +64,8 @@ export default function SignUpScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 40,
     flex: 1,
     backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
   form: {
     flex: 5,

@@ -25,7 +25,7 @@ export default function LoginScreen() {
         <CustomInput text={"Password"} input={"Password"} password={true} />
         <View style={styles.buttons}>
           <CustomButton
-            onSubmitChange={() => onSubmitLogin()}
+            ButtonPress={() => onSubmitLogin()}
             btnText={"Login"} />
           <View style={styles.bar}></View>
           <CustomButton
@@ -55,7 +55,6 @@ export default function LoginScreen() {
 
 const styles = StyleSheet.create({
   containerLogin: {
-    marginTop: 40,
     marginBottom: 10,
     flex: 1,
     backgroundColor: "#fff",
