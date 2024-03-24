@@ -1,10 +1,10 @@
-import LoginScreen from "../../LoginScreen";
-import SignUpScreen from "../../SignUpScreen";
-import SuccessfulScreen from "../../SuccessfulScreen";
-import AuthScreen from "../../AuthScreen";
+import LoginScreen from "../LoginScreen";
+import SignUpScreen from "../SignUpScreen";
+import SuccessfulScreen from "../SuccessfulScreen";
+import AuthScreen from "../AuthScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 
-export default function MyStack() {
+export default function StackNavigatorsAuth() {
   const Stack = createStackNavigator();
 
   return (

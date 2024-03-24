@@ -3,9 +3,9 @@ import { CustomButton } from "../screen/components/ui/CustomButton.jsx";
 import { CustomInput } from "../screen/components/ui/CustomInput.jsx";
 import { CustomHeader } from "../screen/components/home/CustomHeader.jsx";
 import { useContext, useState } from "react";
-import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { FormContext } from "../contexts/FormContext.jsx";
 import { useSignUpValidations } from "../hook/useSignUpValidations.js";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 export default function SignUpScreen() {
   const [isSelected, setSelection] = useState(false);
