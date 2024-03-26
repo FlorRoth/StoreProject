@@ -12,7 +12,7 @@ import { ProductContext } from '../contexts/ProductContext';
 
 import { useContext, useEffect, useState } from 'react';
 
-import { CarouselCategories } from "../components/homeScreen/carouselCategories";
+import { CarouselCategories } from "./components/home/carouselCategories";
 
 export const HomeScreen = () => {
   const {state, getProducts,getCategories,toggleFavorite} = useContext(ProductContext); 
@@ -52,8 +52,10 @@ export const HomeScreen = () => {
           )}
           renderItem={({ item }) => (
             <CarouselCategories name={item} dataProduct={productsByCategorie(item)} />
+            
           )}
           keyExtractor={(item) => item.id}
+
           style={{ paddingHorizontal: 10 }}
         />
 
