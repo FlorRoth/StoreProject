@@ -17,12 +17,41 @@ export const StackNavigators = () => {
         headerTintColor: 'black',
         headerStyle: { backgroundColor: 'white' },
       }}>
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Products" component={Products} />
-      <Stack.Screen name="Categories" component={Categories} />
+      <Stack.Screen name="Home" component={HomeScreen}
+      options={{
+        title: "",
+        headerStyle: {
+          elevation: 0,
+        },
+      }} />
+      <Stack.Screen name="Products" component={Products}
+      options={{
+        title: "",
+        headerStyle: {
+          elevation: 0,
+        },
+      }} />
+      <Stack.Screen name="Categories" component={Categories}
+      options={{
+        title: "",
+        headerStyle: {
+          elevation: 0,
+        },
+      }} />
 
-      <Stack.Screen name="ProductItem" component={ProductItem} />
-      <Stack.Screen name="PageNotFound" component={PageNotFound} />
+      <Stack.Screen name="ProductItem" component={ProductItem} 
+      options={{
+        title: "",
+        headerStyle: {
+          elevation: 0,
+        },
+      }}/>
+      <Stack.Screen name="PageNotFound" component={PageNotFound} options={{
+          title: "",
+          headerStyle: {
+            elevation: 0,
+          },
+        }}/>
 
     </Stack.Navigator>
   );

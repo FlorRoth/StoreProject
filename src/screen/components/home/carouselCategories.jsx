@@ -8,7 +8,7 @@ import {
   Pressable,
 } from "react-native";
 import { CarouselCategoriesCards } from "./carouselCategoriesCards";
-import { ProductContext } from "../../contexts/ProductContext";
+import { ProductContext } from "../../../contexts/ProductContext";
 import { useNavigation } from "@react-navigation/native";
 
 export const CarouselCategories = ({ name, dataProduct }) => {

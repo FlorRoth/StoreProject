@@ -7,8 +7,7 @@ import {
   StatusBar,
 } from "react-native";
 import { HomeScreen } from "./src/screen/HomeScreen";
-import { Navbar } from "./src/components/navigation/navbar";
-import { Header } from "./src/components/navigation/header";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { StackNavigators } from "./src/screen/navigations/StackNavigators";
 import { ProductProvider } from "./src/providers/ProductProvider";
@@ -20,15 +19,14 @@ export default function App() {
       <View style={styles.container}>
         <StatusBar />
         <SafeAreaView style={styles.container}>
-        <ProductProvider>
-            <BottomTabs/>
+          <ProductProvider>
+            <BottomTabs />
           </ProductProvider>
         </SafeAreaView>
       </View>
     </NavigationContainer>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
