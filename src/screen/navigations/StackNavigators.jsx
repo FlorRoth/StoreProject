@@ -46,10 +46,34 @@ export const StackNavigators = () => {
           },
         }}
       />
-      <Stack.Screen name="SuccessfulScreen" component={SuccessfulScreen} />
-      <Stack.Screen name="ProductItemScreen" component={ProductItemScreen} />
-      <Stack.Screen name="Products" component={Products} />
-      <Stack.Screen name="PageNotFound" component={PageNotFound} />
+      <Stack.Screen options={{
+        title: "",
+        headerStyle: {
+          backgroundColor: "#ffff",
+          elevation: 0,
+        },
+      }} name="SuccessfulScreen" component={SuccessfulScreen} />
+      <Stack.Screen options={{
+        title: "",
+        headerStyle: {
+          backgroundColor: "#ffff",
+          elevation: 0,
+        },
+      }} name="ProductItemScreen" component={ProductItemScreen} />
+      <Stack.Screen options={{
+        title: "",
+        headerStyle: {
+          backgroundColor: "#ffff",
+          elevation: 0,
+        },
+      }} name="Products" component={Products} />
+      <Stack.Screen options={{
+        title: "",
+        headerStyle: {
+          backgroundColor: "#ffff",
+          elevation: 0,
+        },
+      }} name="PageNotFound" component={PageNotFound} />
     </Stack.Navigator >
   );
 };
