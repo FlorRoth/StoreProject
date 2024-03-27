@@ -5,12 +5,14 @@ import { productsStyles } from '../styles/productsStyles';
 import { globalStyles } from '../styles/globalStyles';
 import { ProductContext } from '../contexts/ProductContext';
 import { useNavigation } from '@react-navigation/native';
+import { CartContext } from '../contexts/CartContext';
 
 export default ProductItem = ({ route }) => {
   const { item } = route.params;
-  const [quantity, setQuantity] = useState(0); 
-  const [selectedSize, setSelectedSize] = useState(null);
+  const [quantity, setQuantity] = useState(1); 
+  const [selectedSize, setSelectedSize] = useState('S');
   const {state, toggleFavorite} = useContext(ProductContext); 
+  const {state: stateCart, addToCart} = useContext(CartContext); 
   const navigation = useNavigation();
 
   
@@ -33,6 +35,12 @@ export default ProductItem = ({ route }) => {
   const handleSizeSelection = (size) => {
     setSelectedSize(size);
   };
+
+
+  const handleAddToCart = (product, quantity) => {
+    addToCart(product,quantity);
+    Alert.alert("Producto agregado al carrito con exito!")
+  }
 
 
   const renderStars = () => {
@@ -103,12 +111,14 @@ export default ProductItem = ({ route }) => {
     <View style={productsStyles.productItemcontainer}>
         <View style={{flex: 1}}>
 
-        <View style={[productsStyles.cartProductHeader,productsStyles.shadow]}>
+        <TouchableOpacity style={[productsStyles.cartProductHeader,productsStyles.shadow]}
+        onPress={()=>navigation.navigate("Cart")}
+        >
           <Image
             style={{height: 30, width: 30}}
             source={require('../../assets/cart-white.png')}
           />
-        </View>
+        </TouchableOpacity>
 
           <Image
             style={productsStyles.productItemImage}
@@ -174,7 +184,7 @@ export default ProductItem = ({ route }) => {
                 <Text style={{fontSize: 10, color: '#AAAAAA'}}>Total Price</Text>
                 <Text style={productsStyles.productPrice}>$ {item.price.toFixed(2)}</Text>
               </View>
-              <TouchableOpacity style={productsStyles.addToCartButton}>
+              <TouchableOpacity style={productsStyles.addToCartButton}  onPress={() => handleAddToCart(item,quantity)}>
                     <Image
                     style={{width: 20, height: 20, objectFit: "contain", marginRight: 10}}
                   source={require('../../assets/cart.png')} 
