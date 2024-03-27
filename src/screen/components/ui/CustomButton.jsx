@@ -11,11 +11,11 @@ export const CustomButton = ({
   borderC = "",
   colorT = "#fff",
   img = false,
-  onSubmitChange,
+  ButtonPress,
 }) => {
   return (
     <TouchableOpacity
-      onPress={onSubmitChange}
+      onPress={ButtonPress}
       style={[styles.btn, {
         backgroundColor: bckColor,
         marginHorizontal: marginH,

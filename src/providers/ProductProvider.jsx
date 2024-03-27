@@ -9,7 +9,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const initialValues = {
   products: [],
   favorites: [],
-  categories:[],
+  categories: [],
   isLoading: true,
 }
 
@@ -27,16 +27,16 @@ export const ProductProvider = ({ children }) => {
 
 
   const getProducts = async () => {
-   
+
     try {
-        
-      const {data} = await axiosApi.get('/products')
-      
+
+      const { data } = await axiosApi.get('/products')
+
       dispatch({
         type: types.product.getProducts,
         payload: {
-           products: data,
-           isLoading: false,
+          products: data,
+          isLoading: false,
         }
       })
 
@@ -44,21 +44,21 @@ export const ProductProvider = ({ children }) => {
       dispatch({
         type: types.product.getProducts,
         payload: {
-           products: [],
-           isLoading: false,
+          products: [],
+          isLoading: false,
         }
       })
     }
   }
   const getCategories = async () => {
-   
+
     try {
       const {data} = await axiosApi.get('/products/categories')
       dispatch({
         type: types.categorie.getCategories,
         payload: {
-          categories:data,
-          isLoading:false,
+          categories: data,
+          isLoading: false,
         }
       })
     } catch (error) {
@@ -66,7 +66,7 @@ export const ProductProvider = ({ children }) => {
         type: types.categorie.getCategories,
         payload: {
           categories: [],
-           isLoading: false,
+          isLoading: false,
         }
       })
     }
@@ -74,21 +74,21 @@ export const ProductProvider = ({ children }) => {
 
 
   const toggleFavorite = (productId) => {
-      const favorites = state.favorites ? [...state.favorites] : [];
-      const isFavorite = favorites.includes(productId);
+    const favorites = state.favorites ? [...state.favorites] : [];
+    const isFavorite = favorites.includes(productId);
 
-      
-      if (isFavorite) {
-        const index = favorites.indexOf(productId);
-        favorites.splice(index, 1);
-      } else {
-        favorites.push(productId);
-      }
 
-      dispatch({
-        type: types.product.toggleFavorite,
-        payload: {favorites},
-      });
+    if (isFavorite) {
+      const index = favorites.indexOf(productId);
+      favorites.splice(index, 1);
+    } else {
+      favorites.push(productId);
+    }
+
+    dispatch({
+      type: types.product.toggleFavorite,
+      payload: { favorites },
+    });
   };
 
   const loadFavorites = async () => {
@@ -109,12 +109,12 @@ export const ProductProvider = ({ children }) => {
   return (
 
     <ProductContext.Provider value={{
-        state,
-        getProducts,
-        getCategories,
-        toggleFavorite,
-      }}>
-    {children}
+      state,
+      getProducts,
+      getCategories,
+      toggleFavorite,
+    }}>
+      {children}
     </ProductContext.Provider>
   )
 }

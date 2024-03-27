@@ -1,20 +1,10 @@
 import * as React from "react";
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { HomeScreen } from "../HomeScreen";
-import { StackNavigators } from "./StackNavigators";
 import Products from "../ProductsScreen";
 import PageNotFound from "../404Screen.jsx";
 import Ionicons from "@expo/vector-icons/Ionicons";
-
+import AuthScreen from "../AuthScreen.jsx";
+import { HomeScreen } from "../HomeScreen.jsx";
 
 const Tab = createBottomTabNavigator();
 export const BottomTabs = () => {
@@ -23,8 +13,8 @@ export const BottomTabs = () => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          height:80,
-          paddingTop:10
+          height: 80,
+          paddingTop: 10
         },
         tabBarLabelStyle: {
           color: "black",
@@ -35,26 +25,32 @@ export const BottomTabs = () => {
     >
       <Tab.Screen
         name="inicio"
-        component={StackNavigators}
+        component={HomeScreen}
         options={{
-          tabBarIcon: ({focused}) => <Ionicons name="home" size={32} color={focused ? "black" : "grey"} />,
+          tabBarIcon: ({ focused }) => <Ionicons name="home" size={32} color={focused ? "black" : "grey"} />,
         }}
       />
       <Tab.Screen
         name="Productos"
         component={Products}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <Ionicons name="pricetags" size={32} color={focused ? "black" : "grey"} />
           ),
         }}
       />
-
       <Tab.Screen
-        name="Profile"
+        name="Categorias"
         component={PageNotFound}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => <Ionicons name="options" size={32} color={focused ? "black" : "grey"} />,
+        }}
+      />
+      <Tab.Screen
+        name="Perfil"
+        component={AuthScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
             <Ionicons name="person" size={30} color={focused ? "black" : "grey"} />
           )
         }}
@@ -63,7 +59,7 @@ export const BottomTabs = () => {
         name="Carrito"
         component={PageNotFound}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: ({ focused }) => (
             <Ionicons name="cart" size={30} color={focused ? "black" : "grey"} />
           )
         }}
