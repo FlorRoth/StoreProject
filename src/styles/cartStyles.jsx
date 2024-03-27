@@ -126,5 +126,23 @@ export const cartStyles = StyleSheet.create({
         color: "#919191", 
         fontSize: 18, 
         fontWeight: '800'
+    },
+
+    containerIconCart: {
+        position: "absolute", 
+        top: -5, 
+        right: 0,
+        width: 14,
+        height: 14, 
+        borderRadius: 40,
+        backgroundColor: "#000000", 
+        flexDirection: "row", 
+        justifyContent: "center"
+    },
+
+    numberItemsCart: {
+        fontSize: 9,
+        color: "#fff",
+        fontWeight: "800"
     }
 });

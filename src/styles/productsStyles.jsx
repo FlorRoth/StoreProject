@@ -221,7 +221,7 @@ export const productsStyles = StyleSheet.create({
     },
 
     cartProductHeader: {
-        top: 2,
+        top: 5,
         right: 20,
         position: "absolute",
         zIndex: 1,
