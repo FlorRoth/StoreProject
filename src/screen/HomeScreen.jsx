@@ -7,49 +7,12 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import { Navbar } from "../components/navigation/navbar";
-import { Header } from "../components/navigation/header";
+
 import { ProductContext } from '../contexts/ProductContext';
 
 import { useContext, useEffect, useState } from 'react';
 
-import { CarouselCategories } from "../components/homeScreen/carouselCategories";
-const categories = [
-  "electronics",
-  "jewelery",
-  "men's clothing",
-  "women's clothing",
-];
-const RecommendedMovies = [
-  {
-    id: 2,
-    titleMovie: "Rapido y Furioso 2",
-    img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-  },
-  {
-    id: 3,
-    titleMovie: "Rapido y Furioso 3",
-    img: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-  },
-  {
-    id: 4,
-    titleMovie: "Rapido y Furioso 4",
-    img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-  },
-  {
-    id: 5,
-    titleMovie: "Rapido y Furioso 5",
-    img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-  },
-  {
-    id: 1,
-    titleMovie: "Rapido y Furioso 1",
-    img: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-  },
-];
-
-
-
+import { CarouselCategories } from "./components/home/carouselCategories";
 
 export const HomeScreen = () => {
   const {state, getProducts,getCategories,toggleFavorite} = useContext(ProductContext); 
@@ -89,8 +52,10 @@ export const HomeScreen = () => {
           )}
           renderItem={({ item }) => (
             <CarouselCategories name={item} dataProduct={productsByCategorie(item)} />
+            
           )}
           keyExtractor={(item) => item.id}
+
           style={{ paddingHorizontal: 10 }}
         />
 

@@ -53,8 +53,7 @@ export const ProductProvider = ({ children }) => {
   const getCategories = async () => {
 
     try {
-      const { data } = await axiosApi.get('/products/categories')
-      //console.log(data);
+      const {data} = await axiosApi.get('/products/categories')
       dispatch({
         type: types.categorie.getCategories,
         payload: {

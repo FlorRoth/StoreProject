@@ -74,6 +74,13 @@ export const StackNavigators = () => {
           elevation: 0,
         },
       }} name="PageNotFound" component={PageNotFound} />
-    </Stack.Navigator >
+      <Stack.Screen name="Categories" component={Categories}
+      options={{
+        title: "",
+        headerStyle: {
+          elevation: 0,
+        },
+      }} />
+    </Stack.Navigator>
   );
 };

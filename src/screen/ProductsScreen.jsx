@@ -19,8 +19,7 @@ export default function Products() {
     getProducts();
   }
 
-
-  const renderProductsItem = ({ item }) => {
+  const renderProductsItem = ({item}) => {
 
     return (
       <TouchableOpacity
