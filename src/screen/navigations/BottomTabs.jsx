@@ -1,10 +1,10 @@
 import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { StackNavigators } from "./StackNavigators";
 import Products from "../ProductsScreen";
 import PageNotFound from "../404Screen.jsx";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import StackNavigatorsAuth from "./StackNavigatorsAuth.jsx";
+import AuthScreen from "../AuthScreen.jsx";
+import { HomeScreen } from "../HomeScreen.jsx";
 
 const Tab = createBottomTabNavigator();
 export const BottomTabs = () => {
@@ -25,7 +25,7 @@ export const BottomTabs = () => {
     >
       <Tab.Screen
         name="inicio"
-        component={StackNavigators}
+        component={HomeScreen}
         options={{
           tabBarIcon: ({ focused }) => <Ionicons name="home" size={32} color={focused ? "black" : "grey"} />,
         }}
@@ -48,7 +48,7 @@ export const BottomTabs = () => {
       />
       <Tab.Screen
         name="Perfil"
-        component={StackNavigatorsAuth}
+        component={AuthScreen}
         options={{
           tabBarIcon: ({ focused }) => (
             <Ionicons name="person" size={30} color={focused ? "black" : "grey"} />

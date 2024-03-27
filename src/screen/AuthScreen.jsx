@@ -1,6 +1,8 @@
 import { StyleSheet, View } from "react-native";
 import { CustomButton } from "../screen/components/ui/CustomButton.jsx";
 import { CustomIMG } from "./components/ui/CustomIMG.jsx";
+import LoginScreen from "./LoginScreen";
+import SignUpScreen from "./SignUpScreen";
 
 export default function AuthScreen({ navigation }) {
   return (
