@@ -1,36 +1,20 @@
 import "react-native-gesture-handler";
-import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-  ScrollView,
-  StatusBar,
-} from "react-native";
-import { HomeScreen } from "./src/screen/HomeScreen";
-
 import { NavigationContainer } from "@react-navigation/native";
-import { StackNavigators } from "./src/screen/navigations/StackNavigators";
 import { ProductProvider } from "./src/providers/ProductProvider";
 import { BottomTabs } from "./src/screen/navigations/BottomTabs";
+import { FormProvider } from "./src/providers/FormProvider";
+import { StackNavigators } from "./src/screen/navigations/StackNavigators";
 
 export default function App() {
   return (
     <NavigationContainer>
-      <View style={styles.container}>
-        <StatusBar />
-        <SafeAreaView style={styles.container}>
-          <ProductProvider>
+      <FormProvider>
+        <ProductProvider>
+          <StackNavigators>
             <BottomTabs />
-          </ProductProvider>
-        </SafeAreaView>
-      </View>
+          </StackNavigators>
+        </ProductProvider>
+      </FormProvider>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#FFFFFF",
-  },
-});

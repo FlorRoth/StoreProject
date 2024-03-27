@@ -1,7 +1,6 @@
 import { useReducer, useState } from "react";
 import { FormContext } from "../contexts/FormContext";
 import { FormReducer } from "../reducers/FormReducer";
-import { types } from "../types/types";
 import { axiosApi } from "../config/AxiosApi";
 
 const initialValues = {
