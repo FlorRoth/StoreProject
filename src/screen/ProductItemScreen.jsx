@@ -6,6 +6,9 @@ import { globalStyles } from '../styles/globalStyles';
 import { ProductContext } from '../contexts/ProductContext';
 import { useNavigation } from '@react-navigation/native';
 import { CartContext } from '../contexts/CartContext';
+import CartIcon from '../components/ui/CartIcon';
+import RenderStars from '../components/renders/RenderStars';
+import RenderProductSizes from '../components/renders/RenderProductSizes';
 
 export default ProductItem = ({ route }) => {
   const { item } = route.params;
@@ -41,84 +44,12 @@ export default ProductItem = ({ route }) => {
     addToCart(product,quantity);
     Alert.alert("Producto agregado al carrito con exito!")
   }
-
-
-  const renderStars = () => {
-    const stars = [];
-    const rating = Math.round(item.rating.rate); 
-    for (let i = 0; i < 5; i++) {
-      if (i < rating) {
-        stars.push(
-          <Image
-            key={i}
-            style={productsStyles.star}
-            source={require('../../assets/star.png')}
-          />
-        );
-      } else {
-        stars.push(
-          <Image
-            key={i}
-            style={productsStyles.star}
-            source={require('../../assets/empty_star.png')} 
-          />
-        );
-      }
-    }
-    return stars;
-  };
   
-
-  const renderSizes = () => {
-    return(
-    <View style={globalStyles.containerTitle}>
-        <View style={{flex: 1, paddingRight: 15,paddingLeft: 0,paddingTop: 10}}>
-          <Text style={productsStyles.productItemTitle}>Size</Text>
-          <View style={productsStyles.contentSize}>
-            <TouchableOpacity 
-              style={[productsStyles.btnSize, selectedSize === 'S' && productsStyles.btnSizeSelected]}
-              onPress={() => handleSizeSelection('S')}>
-              <Text style={[ productsStyles.btnSizeText, selectedSize === 'S' && productsStyles.btnSizeSelectedText]}>S</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-              style={[productsStyles.btnSize, selectedSize === 'M' &&  productsStyles.btnSizeSelected]}
-              onPress={() => handleSizeSelection('M')}>
-              <Text style={[ productsStyles.btnSizeText, selectedSize === 'M' &&  productsStyles.btnSizeSelectedText]}>M</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-              style={[productsStyles.btnSize, selectedSize === 'L' &&  productsStyles.btnSizeSelected]}
-              onPress={() => handleSizeSelection('L')}>
-              <Text style={[ productsStyles.btnSizeText, selectedSize === 'L' &&  productsStyles.btnSizeSelectedText]}>L</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-              style={[productsStyles.btnSize, selectedSize === 'XL' &&  productsStyles.btnSizeSelected]}
-              onPress={() => handleSizeSelection('XL')}>
-              <Text style={[ productsStyles.btnSizeText, selectedSize === 'XL' &&  productsStyles.btnSizeSelectedText]}>XL</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-              style={[productsStyles.btnSize, selectedSize === 'XXL' &&  productsStyles.btnSizeSelected]}
-              onPress={() => handleSizeSelection('XXL')}>
-              <Text style={[ productsStyles.btnSizeText, selectedSize === 'XXL' &&  productsStyles.btnSizeSelectedText]}>XXL</Text>
-            </TouchableOpacity>
-          </View> 
-      </View>
-    </View>);
-  };
-  
-
-
   return (
     <View style={productsStyles.productItemcontainer}>
         <View style={{flex: 1}}>
 
-        <TouchableOpacity style={[productsStyles.cartProductHeader,productsStyles.shadow]}
-        onPress={()=>navigation.navigate("Cart")}
-        >
-          <Image
-            style={{height: 30, width: 30}}
-            source={require('../../assets/cart-white.png')}
-          />
-        </TouchableOpacity>
+          <CartIcon/>
 
           <Image
             style={productsStyles.productItemImage}
@@ -148,7 +79,7 @@ export default ProductItem = ({ route }) => {
                   <View style={{marginTop: 10}}>
                     <Text style={productsStyles.productDescription}>{item.category}</Text>
                     <View style={productsStyles.starContainer}>
-                      {renderStars()}
+                      {RenderStars(item.rating.rate)}
                       <Text style={{ fontSize: 12 }}>({item.rating.count} Review)</Text>
                     </View>
                   </View>
@@ -169,7 +100,12 @@ export default ProductItem = ({ route }) => {
               
               </View>
             </View>
-            {item.category.includes('clothing') && ( renderSizes())}
+            {item.category.includes('clothing') && (       
+            <RenderProductSizes
+              sizes={['S', 'M', 'L', 'XL', 'XXL']} 
+              selectedSize={selectedSize}
+              onSizeSelected={handleSizeSelection} 
+            />)}
             <View style={{paddingTop: 10}}>
               <Text style={productsStyles.productItemTitle}>Description</Text>
               <View style={{marginTop: 10}}>
