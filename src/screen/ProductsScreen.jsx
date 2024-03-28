@@ -58,12 +58,6 @@ export default function Products() {
           <View style={productsStyles.headerContainer}>
             <TouchableOpacity>
               <Image
-                style={{ height: 35, width: 35 }}
-                source={require('../../assets/arrow.png')}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image
                 style={{ height: 22, width: 22 }}
                 source={require('../../assets/search.png')}
               />

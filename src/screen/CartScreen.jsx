@@ -6,12 +6,13 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { CartContext } from '../contexts/CartContext';
 import Spinner from '../components/ui/Spinner';
 import RenderCartItem from '../components/renders/RenderCartItem';
+import { globalStyles } from '../styles/globalStyles';
 
 
 export default function Cart() {
 
   const navigation = useNavigation();
-  const {state: stateCart,addToCart,removeFromCart} = useContext(CartContext); 
+  const {state: stateCart} = useContext(CartContext); 
   
 
   return (
@@ -24,6 +25,7 @@ export default function Cart() {
          <View style={cartStyles.productsContainer}>
                 <ScrollView>
                     <View>
+                        <Text style={globalStyles.titleStyle}>Cart</Text>
                         {stateCart.cartItems.map(cart => RenderCartItem({ item: cart.item, key: cart.item.id , quantity: cart.quantity}))}
                     </View>
 

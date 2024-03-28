@@ -10,7 +10,7 @@ export const productsStyles = StyleSheet.create({
 
     headerContainer: {
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "flex-end",
         marginVertical: 20,
         alignItems: "center",
     },
