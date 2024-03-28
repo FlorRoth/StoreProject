@@ -2,12 +2,6 @@ import { StyleSheet } from "react-native";
 
 export const productsStyles = StyleSheet.create({
 
-    productsContainer: {
-        flex: 1,
-        backgroundColor: '#fff',
-        paddingHorizontal: 20,
-    },
-
     headerContainer: {
         flexDirection: "row",
         justifyContent: "flex-end",

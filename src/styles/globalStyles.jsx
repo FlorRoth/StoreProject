@@ -9,5 +9,11 @@ export const globalStyles = StyleSheet.create({
       containerTitle: {
         flexDirection: "row",
         justifyContent: "space-between"
-    }
+    },
+
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      paddingHorizontal: 20,
+  },
 });

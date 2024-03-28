@@ -2,12 +2,6 @@ import { StyleSheet } from "react-native";
 
 export const cartStyles = StyleSheet.create({
 
-    productsContainer: {
-        flex: 1,
-        backgroundColor: '#fff',
-        paddingHorizontal: 20,
-    },
-
     cardProduct: {
         marginVertical: 12,
         backgroundColor: 'white',

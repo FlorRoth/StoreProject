@@ -22,7 +22,7 @@ export default function Cart() {
       ) : 
       (
         stateCart.cartItems.length > 0 ? (
-         <View style={cartStyles.productsContainer}>
+         <View style={globalStyles.container}>
                 <ScrollView>
                     <View>
                         <Text style={globalStyles.titleStyle}>Cart</Text>
