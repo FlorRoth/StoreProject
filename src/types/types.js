@@ -13,7 +13,8 @@ export const types = {
     cart: {
         addToCart: 'ADD TO CART [CART]',
         removeFromCart: 'REMOVE FROM CART [CART]',
-        updateTotal: 'UPDATE TOTAL [CART]'
+        updateTotal: 'UPDATE TOTAL [CART]',
+        updateCartItems: 'UPDATE ALL ITEMS [CART]'
 
     }
 

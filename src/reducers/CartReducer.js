@@ -16,7 +16,12 @@ export const CartReducer = (state={}, action) => {
                 cartItems: action.payload.cartItems,
                 isLoading: action.payload.isLoading
             } 
-
+        case  types.cart.updateCartItems:
+            return {
+                ...state,
+                cartItems: action.payload.cartItems,
+                isLoading: action.payload.isLoading
+         } 
         case  types.cart.updateTotal:
             return {
                 ...state,
