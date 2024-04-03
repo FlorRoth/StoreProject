@@ -5,6 +5,7 @@ import PageNotFound from "../404Screen.jsx";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import AuthScreen from "../AuthScreen.jsx";
 import { HomeScreen } from "../HomeScreen.jsx";
+import Cart  from "../CartScreen.jsx";
 
 const Tab = createBottomTabNavigator();
 export const BottomTabs = () => {
@@ -57,7 +58,7 @@ export const BottomTabs = () => {
       />
       <Tab.Screen
         name="Carrito"
-        component={PageNotFound}
+        component={Cart}
         options={{
           tabBarIcon: ({ focused }) => (
             <Ionicons name="cart" size={30} color={focused ? "black" : "grey"} />
