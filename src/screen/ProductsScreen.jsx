@@ -13,7 +13,7 @@ import { productsStyles } from "../styles/productsStyles";
 import { globalStyles } from "../styles/globalStyles";
 import { ProductContext } from "../contexts/ProductContext";
 import { useNavigation } from "@react-navigation/native";
-import { renderProductsItem } from "./components/products/CustomProductsRenderItem";
+import { RenderProductsItem } from "./components/products/CustomProductsRenderItem";
 
 export default function Products() {
   const navigation = useNavigation();
@@ -28,7 +28,7 @@ export default function Products() {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       {state.isLoading ? (
         <ActivityIndicator size="large" color="#000000" />
       ) : (
@@ -57,11 +57,17 @@ export default function Products() {
               keyExtractor={(item) => {
                 return item.id;
               }}
-              renderItem={renderProductsItem}
+              renderItem={({ item }) => (
+                <RenderProductsItem
+                  item={item}
+                  state={state}
+                  toggleFavorite={toggleFavorite}
+                />
+              )}
             />
           </View>
         </View>
       )}
-    </View>
+    </SafeAreaView>
   );
 }

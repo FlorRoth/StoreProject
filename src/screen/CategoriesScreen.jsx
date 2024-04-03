@@ -13,7 +13,7 @@ import { productsStyles } from "../styles/productsStyles";
 import { globalStyles } from "../styles/globalStyles";
 import { ProductContext } from "../contexts/ProductContext";
 import { useNavigation } from "@react-navigation/native";
-import { renderProductsItem } from "./components/products/CustomProductsRenderItem";
+import { RenderProductsItem } from "./components/products/CustomProductsRenderItem";
 
 export default Categories = ({ route }) => {
   const { item } = route.params;
@@ -64,7 +64,13 @@ export default Categories = ({ route }) => {
               keyExtractor={(item) => {
                 return item.id;
               }}
-              renderItem={renderProductsItem}
+              renderItem={({ item }) => (
+                <RenderProductsItem
+                  item={item}
+                  state={state}
+                  toggleFavorite={toggleFavorite}
+                />
+              )}
             />
           </View>
         </View>

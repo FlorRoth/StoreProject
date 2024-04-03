@@ -1,7 +1,10 @@
 import { Text, View, TouchableOpacity, Image } from "react-native";
 import { productsStyles } from "../../../styles/productsStyles";
+import { useNavigation } from "@react-navigation/native";
 
-export const renderProductsItem = ({ item }) => {
+export const RenderProductsItem = ({ item, state, toggleFavorite }) => {
+  const navigation = useNavigation();
+
   return (
     <TouchableOpacity
       style={productsStyles.cardProduct}
@@ -13,8 +16,8 @@ export const renderProductsItem = ({ item }) => {
             style={{ height: 25, width: 25 }}
             source={
               state.favorites.includes(item.id)
-                ? require("../../assets/favorite-black.png")
-                : require("../../assets/favorite.png")
+                ? require("../../../../assets/favorite-black.png")
+                : require("../../../../assets/favorite.png")
             }
           />
         </TouchableOpacity>

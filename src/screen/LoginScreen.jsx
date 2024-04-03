@@ -3,15 +3,24 @@ import { CustomButton } from "../screen/components/ui/CustomButton.jsx";
 import { CustomInput } from "../screen/components/ui/CustomInput.jsx";
 import { CustomHeader } from "../screen/components/home/CustomHeader.jsx";
 import { FormContext } from "../contexts/FormContext.jsx";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useLoginValidations } from "../hook/useLoginValidations.js";
-
+import { useNavigation } from "@react-navigation/core";
+import { Spinner } from "./components/ui/Spinner.jsx";
 export default function LoginScreen() {
   const [errorMessage, setErrorMessage] = useState("");
-  const { formState, postLogin } = useContext(FormContext);
+  const { formState, getUserData, state, postLogin } = useContext(FormContext);
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    if (state.isLogged) {
+      navigation.navigate("Perfil");
+    }
+  }, [state]);
+
   const onSubmitLogin = () => {
-    useLoginValidations(setErrorMessage, formState, postLogin)
-  }
+    useLoginValidations(setErrorMessage, formState, postLogin);
+  };
 
   return (
     <ScrollView style={styles.containerLogin}>
@@ -21,12 +30,18 @@ export default function LoginScreen() {
       />
       <View style={styles.form}>
         <Text>{errorMessage}</Text>
+
         <CustomInput text={"User Name"} input={"UserName"} />
         <CustomInput text={"Password"} input={"Password"} password={true} />
         <View style={styles.buttons}>
-          <CustomButton
-            ButtonPress={() => onSubmitLogin()}
-            btnText={"Login"} />
+          {state.isLoading ? (
+            <Spinner />
+          ) : (
+            <CustomButton
+              ButtonPress={() => onSubmitLogin()}
+              btnText={"Login"}
+            />
+          )}
           <View style={styles.bar}></View>
           <CustomButton
             btnText={"Continue with Facebook"}
