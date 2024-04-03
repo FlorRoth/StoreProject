@@ -21,12 +21,12 @@ export const CartProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    AsyncStorage.setItem("CartItems", JSON.stringify(state.cartItems));
     const total = calculateTotal(state.cartItems);
     dispatch({
       type: types.cart.updateTotal,
       payload: {total}
     });
+    AsyncStorage.setItem("CartItems", JSON.stringify(state.cartItems));
   }, [state.cartItems]);
 
 
@@ -57,15 +57,21 @@ export const CartProvider = ({ children }) => {
     const cartItems = state.cartItems  ? [...state.cartItems] : [];
     const existingItemIndex = cartItems.findIndex(cartItem => cartItem.item.id === productId);
     if (existingItemIndex !== -1) {
-          const updateCartItems = cartItems.filter((cartItem) => cartItem.item.id !== productId);
+          const updatedCartItems = cartItems.filter((cartItem) => cartItem.item.id !== productId);
           dispatch({
             type: types.cart.removeFromCart,
             payload: {
-               cartItems: updateCartItems,
+               cartItems: updatedCartItems,
                isLoading: false
             } 
-       });
+          });
     }
+  };
+
+  const getQuantity = (itemId) => {
+    const cartItems = state.cartItems  ? [...state.cartItems] : [];
+    const cartItem = cartItems.find(cartItem => cartItem.item.id === itemId);
+    return cartItem ? cartItem.quantity : 1;
   };
 
 
@@ -74,7 +80,7 @@ export const CartProvider = ({ children }) => {
       const items = await AsyncStorage.getItem("CartItems");
       if (items !== null) {
         dispatch({
-          type: types.cart.addToCart,
+          type: types.cart.updateCartItems,
           payload: {
              cartItems: JSON.parse(items),
              isLoading: false
@@ -100,7 +106,8 @@ export const CartProvider = ({ children }) => {
         state,
         addToCart,
         loadCartItem,
-        removeFromCart
+        removeFromCart,
+        getQuantity
       }}>
     {children}
     </CartContext.Provider>

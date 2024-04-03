@@ -7,27 +7,21 @@ import { cartStyles } from '../../styles/cartStyles';
 
 export default function RenderCartItem({item, key, quantity}) {
 
-  const {addToCart,removeFromCart} = useContext(CartContext); 
-  
-    const [qty, setQty] = useState(quantity); 
+  const {addToCart,removeFromCart, getQuantity} = useContext(CartContext); 
+   
 
-    const decreaseQuantity = () => {
-      if (qty > 1) {
-        setQty(qty - 1);
-      }
-    };
-  
-    const increaseQuantity = () => {
-      setQty(qty + 1);
-    };
+  const decreaseQuantity = () => {
+    const currentQty = getQuantity(item.id);
+    if (currentQty > 1) {
+      addToCart(item, currentQty - 1);
+    }
+  };
 
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        addToCart(item,qty)
-      }, 1000);
-  
-      return () => clearTimeout(timer);
-    }, [qty]);
+  const increaseQuantity = () => {
+    const currentQty = getQuantity(item.id);
+    addToCart(item, currentQty + 1);
+  };
+
 
 
     return (
@@ -52,7 +46,7 @@ export default function RenderCartItem({item, key, quantity}) {
                 <TouchableOpacity onPress={decreaseQuantity}>
                     <Text style={{ fontSize: 20 }}>-</Text>
                 </TouchableOpacity>
-                <Text style={{ fontSize: 16 }}>{qty}</Text>
+                <Text style={{ fontSize: 16 }}>{getQuantity(item.id)}</Text>
                 <TouchableOpacity onPress={increaseQuantity}>
                     <Text style={{ fontSize: 20 }}>+</Text>
                 </TouchableOpacity>
