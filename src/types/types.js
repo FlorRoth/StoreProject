@@ -9,4 +9,13 @@ export const types = {
     categorie: {
         getCategories: 'GET CATEGORIES [CATEGORIE]'
 },
+
+    cart: {
+        addToCart: 'ADD TO CART [CART]',
+        removeFromCart: 'REMOVE FROM CART [CART]',
+        updateTotal: 'UPDATE TOTAL [CART]',
+        updateCartItems: 'UPDATE ALL ITEMS [CART]'
+
+    }
+
 };

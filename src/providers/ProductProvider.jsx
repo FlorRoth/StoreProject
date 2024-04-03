@@ -86,7 +86,7 @@ export const ProductProvider = ({ children }) => {
     }
 
     dispatch({
-      type: types.product.toggleFavorite,
+      type: types.favorite.toggleFavorite,
       payload: { favorites },
     });
   };
@@ -96,7 +96,7 @@ export const ProductProvider = ({ children }) => {
       const favorites = await AsyncStorage.getItem("favorites");
       if (favorites !== null) {
         dispatch({
-          type: types.product.setFavorites,
+          type: types.favorite.toggleFavorite,
           payload: { favorites: JSON.parse(favorites) },
         });
       }

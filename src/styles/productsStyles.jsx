@@ -2,15 +2,9 @@ import { StyleSheet } from "react-native";
 
 export const productsStyles = StyleSheet.create({
 
-    productsContainer: {
-        flex: 1,
-        backgroundColor: '#fff',
-        paddingHorizontal: 20,
-    },
-
     headerContainer: {
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "flex-end",
         marginVertical: 20,
         alignItems: "center",
     },
@@ -221,7 +215,7 @@ export const productsStyles = StyleSheet.create({
     },
 
     cartProductHeader: {
-        top: 2,
+        top: 5,
         right: 20,
         position: "absolute",
         zIndex: 1,

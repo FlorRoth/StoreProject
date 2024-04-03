@@ -14,6 +14,14 @@ import { globalStyles } from "../styles/globalStyles";
 import { ProductContext } from "../contexts/ProductContext";
 import { useNavigation } from "@react-navigation/native";
 import { RenderProductsItem } from "./components/products/CustomProductsRenderItem";
+import { useContext, useEffect, useState } from 'react';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Image, SafeAreaView, ActivityIndicator } from 'react-native';
+import { productsStyles } from '../styles/productsStyles';
+import { globalStyles } from '../styles/globalStyles';
+import { ProductContext } from '../contexts/ProductContext';
+import { useNavigation } from '@react-navigation/native';
+import Spinner from '../components/ui/Spinner';
+
 
 export default function Products() {
   const navigation = useNavigation();
@@ -32,7 +40,7 @@ export default function Products() {
       {state.isLoading ? (
         <ActivityIndicator size="large" color="#000000" />
       ) : (
-        <View style={productsStyles.productsContainer}>
+        <View style={globalStyles.container}>
           <View style={productsStyles.headerContainer}>
             <TouchableOpacity>
               <Image
