@@ -57,7 +57,7 @@ export default Categories=({route}) => {
      {state.isLoading ? (
         <ActivityIndicator size="large" color="#000000" />
       ) : (
-      <View style={productsStyles.productsContainer}>
+      <View style={globalStyles.container}>
             <View style={productsStyles.headerContainer}>
               <TouchableOpacity>
                 <Image 

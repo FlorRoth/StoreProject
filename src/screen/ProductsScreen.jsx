@@ -4,6 +4,7 @@ import { productsStyles } from '../styles/productsStyles';
 import { globalStyles } from '../styles/globalStyles';
 import { ProductContext } from '../contexts/ProductContext';
 import { useNavigation } from '@react-navigation/native';
+import Spinner from '../components/ui/Spinner';
 
 
 export default function Products() {
@@ -49,18 +50,12 @@ export default function Products() {
 
 
   return (
-    <View style={{ flex: 1 }}>
-      {state.isLoading ? (
-        <ActivityIndicator size="large" color="#000000" />
+    <View  style={{ flex: 1}}>
+     {state.isLoading ? (
+        <Spinner />
       ) : (
-        <View style={productsStyles.productsContainer}>
+        <View style={globalStyles.container}>
           <View style={productsStyles.headerContainer}>
-            <TouchableOpacity>
-              <Image
-                style={{ height: 35, width: 35 }}
-                source={require('../../assets/arrow.png')}
-              />
-            </TouchableOpacity>
             <TouchableOpacity>
               <Image
                 style={{ height: 22, width: 22 }}

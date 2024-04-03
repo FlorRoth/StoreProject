@@ -6,6 +6,8 @@ import SignUpScreen from "../SignUpScreen.jsx";
 import SuccessfulScreen from "../SuccessfulScreen.jsx";
 import Products from "../ProductsScreen.jsx";
 import ProductItemScreen from "../ProductItemScreen.jsx"
+import Categories from "../CategoriesScreen.jsx"
+import Cart from "../CartScreen.jsx"
 
 const Stack = createStackNavigator();
 
@@ -75,6 +77,13 @@ export const StackNavigators = () => {
         },
       }} name="PageNotFound" component={PageNotFound} />
       <Stack.Screen name="Categories" component={Categories}
+      options={{
+        title: "",
+        headerStyle: {
+          elevation: 0,
+        },
+      }} />
+      <Stack.Screen name="Cart" component={Cart}
       options={{
         title: "",
         headerStyle: {
