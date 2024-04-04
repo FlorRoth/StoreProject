@@ -6,60 +6,58 @@ import {
   View,
   Image,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
+import { ProductContext } from "../contexts/ProductContext";
 
-import { ProductContext } from '../contexts/ProductContext';
-
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from "react";
 
 import { CarouselCategories } from "./components/home/carouselCategories";
 
 export const HomeScreen = () => {
-  const {state, getProducts,getCategories,toggleFavorite} = useContext(ProductContext); 
+  const { state, getProducts, getCategories, toggleFavorite } =
+    useContext(ProductContext);
 
-      useEffect(() => {
-          init();
-      },[]);
+  useEffect(() => {
+    init();
+  }, []);
 
-      const init = async () => {
-        getCategories();
-        getProducts();
-    
+  const init = async () => {
+    getCategories();
+    getProducts();
+  };
 
-    }
-
-    const productsByCategorie =(categorie)=>{
-      const products= state.products
-      return products.filter(producto => producto.category===categorie)
-    }
+  const productsByCategorie = (categorie) => {
+    const products = state.products;
+    return products.filter((producto) => producto.category === categorie);
+  };
   return (
-    <View style={styles.container}>
-      
-        <FlatList
-          data={state.categories}
-          ListHeaderComponent={() => (
-            <View style={styles.welcomeContainer}>
-          <Text style={styles.welcomeTitle}>Bienvenido,</Text>
-          <Text style={styles.subTitle}>KWIK-E-MART</Text>
-          <Image
-            style={{ width: "100%", height: 150 }}
-            source={require("../../assets/Logo.png")}
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={state.categories}
+        ListHeaderComponent={() => (
+          <View style={styles.welcomeContainer}>
+            <Text style={styles.welcomeTitle}>Bienvenido,</Text>
+            <Text style={styles.subTitle}>KWIK-E-MART</Text>
+            <Image
+              style={{ width: "100%", height: 150 }}
+              source={require("../../assets/Logo.png")}
+            />
+
+            <Text style={styles.categoriesTitle}>Productos Populares</Text>
+            <Text style={styles.categoriesSubtitle}>Por Categoria</Text>
+          </View>
+        )}
+        renderItem={({ item }) => (
+          <CarouselCategories
+            name={item}
+            dataProduct={productsByCategorie(item)}
           />
-
-          <Text style={styles.categoriesTitle}>Productos Populares</Text>
-          <Text style={styles.categoriesSubtitle}>Por Categoria</Text>
-        </View>
-          )}
-          renderItem={({ item }) => (
-            <CarouselCategories name={item} dataProduct={productsByCategorie(item)} />
-            
-          )}
-          keyExtractor={(item) => item.id}
-
-          style={{ paddingHorizontal: 10 }}
-        />
-
-    </View>
+        )}
+        keyExtractor={(item) => item.id}
+        style={{ paddingHorizontal: 10 }}
+      />
+    </SafeAreaView>
   );
 };
 
