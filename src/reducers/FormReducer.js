@@ -2,19 +2,24 @@ import { types } from "../types/types";
 
 export const FormReducer = (state = {}, action) => {
   switch (action.type) {
-    case types.product.getProducts:
+    case "LOGIN":
       return {
         ...state,
-        products: action.payload.products,
+        user: action.payload.user,
+        isLogged: action.payload.isLogged,
+        token: action.payload.token,
+        msg: action.payload.msg,
         isLoading: action.payload.isLoading,
       };
 
-    case types.product.toggleFavorite:
+    case "LOGOUT":
       return {
         ...state,
-        favorites: action.payload.favorites,
+        user: null,
+        isLogged: false,
+        token: "",
+        msg: "Usuario deslogueado",
       };
-
     default:
       return state;
   }
