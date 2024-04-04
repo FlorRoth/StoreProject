@@ -14,15 +14,19 @@ export default function ProfileScreen() {
     { id:2,data: state.user.name?.firstname },
     { id:3,data: state.user.name?.lastname },
     { id:6,data: state.user.phone },
-    { id:4,data: state.user.username },
-    { id:5,data: 'address' },
+    { id:7,data: state.user.username },
+    { id:8,data: state.user.address?.city },
+    { id:9,data: state.user.address?.number },
+    { id:10,data: state.user.address?.street },
+    { id:11,data: state.user.address?.zipcode },
+
   ];
   const Item = ({ title }) => (
     <View style={styles.item}>
       <Text style={styles.title}>{title}</Text>
     </View>
   );
-  console.log(state.user.name?.firstname);
+  console.log(state.user);
   console.log(dataUser);
   return (
     <SafeAreaView style={styles.container}>
