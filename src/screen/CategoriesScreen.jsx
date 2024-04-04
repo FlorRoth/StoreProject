@@ -39,23 +39,18 @@ export default Categories = ({ route }) => {
       {state.isLoading ? (
         <ActivityIndicator size="large" color="#000000" />
       ) : (
-        <View style={productsStyles.productsContainer}>
-          <View style={productsStyles.headerContainer}>
-            <TouchableOpacity>
-              <Image
-                style={{ height: 35, width: 35 }}
-                source={require("../../assets/arrow.png")}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image
-                style={{ height: 22, width: 22 }}
-                source={require("../../assets/search.png")}
-              />
-            </TouchableOpacity>
-          </View>
+        <View style={productsStyles.productItemcontainer}>
           <View>
-            <Text style={globalStyles.titleStyle}>Productos de {item} </Text>
+            <View style={styles.header}>
+              <Text style={globalStyles.titleStyle}>Productos de {item} </Text>
+              <TouchableOpacity>
+                <Image
+                  style={{ height: 22, width: 22 }}
+                  source={require("../../assets/search.png")}
+                />
+              </TouchableOpacity>
+            </View>
+
             <FlatList
               contentContainerStyle={productsStyles.listProductsContainer}
               data={productsByCategorie(item)}
@@ -78,3 +73,11 @@ export default Categories = ({ route }) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 8,
+  },
+});
