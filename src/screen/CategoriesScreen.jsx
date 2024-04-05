@@ -45,7 +45,7 @@ export default Categories = ({ route }) => {
               <Text style={globalStyles.titleStyle}>Productos de {item} </Text>
               <TouchableOpacity>
                 <Image
-                  style={{ height: 22, width: 22 }}
+                  style={{ height: 18, width: 18 }}
                   source={require("../../assets/search.png")}
                 />
               </TouchableOpacity>
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     paddingHorizontal: 8,
   },
 });

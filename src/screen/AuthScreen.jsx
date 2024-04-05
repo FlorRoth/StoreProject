@@ -31,7 +31,6 @@ export default function AuthScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   containerLogin: {
-    marginBottom: 10,
     flex: 1,
     backgroundColor: "#fff",
   },
