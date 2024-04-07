@@ -25,7 +25,7 @@ export default function Cart() {
          <View style={globalStyles.container}>
                 <ScrollView>
                     <View>
-                        <Text style={globalStyles.titleStyle}>Cart</Text>
+                        <Text style={[globalStyles.titleStyle, {marginTop: 10}]}>Cart</Text>
                         {stateCart.cartItems.map(cart => RenderCartItem({ item: cart.item, key: cart.item.id , quantity: cart.quantity}))}
                     </View>
 
@@ -37,7 +37,7 @@ export default function Cart() {
                 </View>
 
                 <View style={cartStyles.addToCartContainer}>
-                  <TouchableOpacity style={cartStyles.addToCartButton}>
+                  <TouchableOpacity style={cartStyles.addToCartButton} onPress={() => navigation.navigate('Payment')}>
                     <View style={[{flex:1},cartStyles.containerTotal]}>
                         <Text style={cartStyles.addToCartButtonText}>Buy</Text>
                         <Image
