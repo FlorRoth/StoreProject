@@ -47,7 +47,17 @@ export default ProductItem = ({ route }) => {
 
   const handleAddToCart = (product, quantity) => {
     addToCart(product, quantity);
-    Alert.alert("Producto agregado al carrito con exito!");
+ 
+    Alert.alert('','Producto agregado al carrito con exito!', [
+      {
+        text: 'Seguir comprando ',
+        onPress: () => navigation.navigate('Products'),
+      },
+      {
+        text: 'Cancelar',
+        style: 'cancel',
+      }
+    ]); 
   };
 
   return (
