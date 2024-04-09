@@ -1,33 +1,67 @@
-export const CustomInput = ({ text, input, mode = "text", password = false }) => {
+import { useState } from "react";
+import { StyleSheet, Switch, Text, View } from "react-native";
+import { CustomIMG } from "./CustomIMG";
 
+export const CustomSetting = ({
+  textL,
+  textR = "",
+  arrow = false,
+  buttonSwitch = false,
+  img = "",
+}) => {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
-    <View style={styles.formBox}>
-      <Text style={styles.formName}>{text}</Text>
-      <View>
-        <TextInput
-          style={styles.formInput}
-          secureTextEntry={password}
-          inputMode={mode}
-          placeholderTextColor={"#000"}
-          onChangeText={(value) => onChangeInput(input, value)}
-        />
+    <View style={styles.customSetting}>
+      <View style={styles.right}>
+        <CustomIMG width={24} height={24} img={img} />
+        <Text style={styles.textLeft}>{textL}</Text>
+      </View>
+
+      <View style={styles.right}>
+        <Text style={styles.textRight}>{textR}</Text>
+        {buttonSwitch === true ? (
+          <Switch
+            trackColor={{ false: "#aaa", true: "#000000" }}
+            ios_backgroundColor="#3e3e3e"
+            onValueChange={toggleSwitch}
+            value={isEnabled}
+          />
+        ) : (
+          ""
+        )}
+        {arrow === true ? <Text style={styles.TextArrow}>{">"}</Text> : ""}
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  formBox: {
-    width: "90%",
-    borderBottomWidth: 1,
-    borderBottomColor: "#bbb",
-    marginBottom: 28,
+  customSetting: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
-  formName: {
-    fontSize: 22,
+  textLeft: {
+    fontSize: 16,
+    fontWeight: "600",
+  },
+  right: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  textRight: {
+    color: "#999",
+    fontSize: 16,
     fontWeight: "500",
+    textAlign: "right",
   },
-  formInput: {
-    fontSize: 18,
+  TextArrow: {
+    paddingLeft: 16,
+    color: "#666666",
+    fontSize: 20,
+    fontWeight: "600",
+    textAlign: "right",
   },
 });

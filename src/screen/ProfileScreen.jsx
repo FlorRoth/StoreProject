@@ -1,10 +1,12 @@
-import { SafeAreaView, StyleSheet, View, Text, FlatList, Image, ScrollView } from "react-native";
+import { SafeAreaView, StyleSheet, View, Text, ScrollView } from "react-native";
 import { useContext, useEffect } from "react";
 import { CustomButton } from "./components/ui/CustomButton";
 import { FormContext } from "../contexts/FormContext";
 import { Spinner } from "./components/ui/Spinner";
 import { CustomInfo } from "./components/ui/CustomInfo";
 import { CustomIMG } from "./components/ui/CustomIMG";
+import { CustomSetting } from "./components/ui/CustomSetting";
+
 export default function ProfileScreen() {
   const { state, getUserData, logout } = useContext(FormContext);
 
@@ -12,17 +14,11 @@ export default function ProfileScreen() {
     getUserData();
   }, [state.isLogged]);
 
-  const Item = ({ title }) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
-  console.log(state.user.username);
   return (
     <SafeAreaView style={styles.container}>
       {state.isLoading ? (
         <Spinner />
-      ) :
+      ) : (
         <ScrollView>
           <View style={styles.header}>
             <CustomIMG width={120} height={120} img={"authLogo"} />
@@ -37,14 +33,29 @@ export default function ProfileScreen() {
           <View>
             <Text style={styles.setting}>Settings</Text>
             <View style={styles.borderBox}>
-              <View style={styles.customSetting}>
-                <Text style={styles.left}>Language</Text>
-                <Text style={styles.right}>English</Text>
-              </View>
+              <CustomSetting
+                textL={"Language"}
+                textR={"English"}
+                arrow={true}
+                img="global"
+              />
+              <CustomSetting
+                textL={"Notification"}
+                buttonSwitch={true}
+                img="campana"
+              />
+              <CustomSetting
+                textL={"Drack Mode"}
+                textR={"off"}
+                buttonSwitch={true}
+                img="luna"
+              />
+              <CustomSetting textL={"Language"} arrow={true} img="pregunta" />
             </View>
           </View>
-        </ScrollView>}
-      {/* <CustomButton ButtonPress={() => logout()} btnText={"LOG OUT"} /> */}
+        </ScrollView>
+      )}
+      <CustomButton ButtonPress={() => logout()} btnText={"LOG OUT"} />
     </SafeAreaView>
   );
 }
@@ -53,39 +64,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingHorizontal: 32,
+    paddingHorizontal: "5%",
   },
   header: {
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 64,
+    marginTop: 64,
   },
   setting: {
     fontSize: 24,
     fontWeight: "500",
     marginTop: 16,
   },
-  customSetting: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
   borderBox: {
-    margin: 32,
+    gap: 16,
+    marginTop: 16,
     borderColor: "#ccc",
     borderWidth: 2,
     borderRadius: 20,
-    paddingHorizontal: 12,
-    paddingVertical: 24
-  },
-  left: {
-    fontSize: 16,
-    fontWeight: "600",
-  },
-  right: {
-    color: "#999",
-    fontSize: 16,
-    fontWeight: "500",
-    textAlign: "right"
+    paddingHorizontal: 20,
+    paddingVertical: 24,
   },
 });
