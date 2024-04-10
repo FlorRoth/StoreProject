@@ -54,21 +54,21 @@ export const BottomTabs = () => {
           ),
         }}
       />
-      {/* {state.isLogged ? ( */}
-      <Tab.Screen
-        name="Perfil"
-        component={ProfileScreen}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Ionicons
-              name="person"
-              size={30}
-              color={focused ? "black" : "grey"}
-            />
-          ),
-        }}
-      />
-      {/* ) : (
+      {state.isLogged ? (
+        <Tab.Screen
+          name="Perfil"
+          component={ProfileScreen}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <Ionicons
+                name="person"
+                size={30}
+                color={focused ? "black" : "grey"}
+              />
+            ),
+          }}
+        />
+      ) : (
         <Tab.Screen
           name="Login"
           component={AuthScreen}
@@ -82,7 +82,7 @@ export const BottomTabs = () => {
             ),
           }}
         />
-      )} */}
+      )}
 
       <Tab.Screen
         name="Carrito"
