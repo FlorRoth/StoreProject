@@ -54,7 +54,8 @@ export const HomeScreen = () => {
             dataProduct={productsByCategorie(item)}
           />
         )}
-        keyExtractor={(item) => item.id}
+        
+        keyExtractor={(item) => item}
         style={{ paddingHorizontal: 10 }}
       />
     </SafeAreaView>
