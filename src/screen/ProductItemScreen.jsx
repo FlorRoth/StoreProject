@@ -17,7 +17,7 @@ import { CartContext } from "../contexts/CartContext";
 import CartIcon from "../components/ui/CartIcon";
 import RenderStars from "../components/renders/RenderStars";
 import RenderProductSizes from "../components/renders/RenderProductSizes";
-
+import Spinner from "../components/ui/Spinner";
 export default ProductItem = ({ route }) => {
   const { item } = route.params;
   const [quantity, setQuantity] = useState(1);
@@ -52,31 +52,38 @@ export default ProductItem = ({ route }) => {
 
   return (
     <View style={productsStyles.productItemcontainer}>
-      <View style={{ flex: 1 }}>
-        <CartIcon />
+      {state.isLoading ? (
+        <Spinner />
+      ) : (
+        <View style={{ flex: 1 }}>
+          <CartIcon />
 
-        <Image
-          style={productsStyles.productItemImage}
-          source={{
-            uri: item.image,
-          }}
-        />
+          <Image
+            style={productsStyles.productItemImage}
+            source={{
+              uri: item.image,
+            }}
+          />
 
-        <View
-          style={[productsStyles.favoriteProductFooter, productsStyles.shadow]}
-        >
-          <TouchableOpacity onPress={() => toggleFavorite(item.id)}>
-            <Image
-              style={{ height: 30, width: 30 }}
-              source={
-                state.favorites.includes(item.id)
-                  ? require("../../assets/favorite-black.png")
-                  : require("../../assets/favorite-white.png")
-              }
-            />
-          </TouchableOpacity>
+          <View
+            style={[
+              productsStyles.favoriteProductFooter,
+              productsStyles.shadow,
+            ]}
+          >
+            <TouchableOpacity onPress={() => toggleFavorite(item.id)}>
+              <Image
+                style={{ height: 30, width: 30 }}
+                source={
+                  state.favorites.includes(item.id)
+                    ? require("../../assets/favorite-black.png")
+                    : require("../../assets/favorite-white.png")
+                }
+              />
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      )}
 
       <View style={productsStyles.productDescriptionContainer}>
         <ScrollView>
