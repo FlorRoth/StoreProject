@@ -44,11 +44,13 @@ export default function LoginScreen() {
           )}
           <View style={styles.bar}></View>
           <CustomButton
+            ButtonPress={() => navigation.navigate("PageNotFound")}
             btnText={"Continue with Facebook"}
             bckColor={"#3b5998"}
             img={"authFacebook"}
           />
           <CustomButton
+            ButtonPress={() => navigation.navigate("PageNotFound")}
             btnText={"Continue with Google"}
             bckColor={"#fff"}
             borderC={"#ddd"}
@@ -56,6 +58,7 @@ export default function LoginScreen() {
             img={"authGoogle"}
           />
           <CustomButton
+            ButtonPress={() => navigation.navigate("PageNotFound")}
             btnText={"Continue with Apple"}
             bckColor={"#fff"}
             borderC={"#ddd"}

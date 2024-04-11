@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { StyleSheet, Switch, Text, View } from "react-native";
+import { StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
 import { CustomIMG } from "./CustomIMG";
+import { useNavigation } from "@react-navigation/core";
 
 export const CustomSetting = ({
   textL,
@@ -11,6 +12,8 @@ export const CustomSetting = ({
 }) => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  const navigation = useNavigation();
+
   return (
     <View style={styles.customSetting}>
       <View style={styles.right}>
@@ -30,7 +33,7 @@ export const CustomSetting = ({
         ) : (
           ""
         )}
-        {arrow === true ? <Text style={styles.TextArrow}>{">"}</Text> : ""}
+        {arrow === true ? <TouchableOpacity onPress={() => navigation.navigate("PageNotFound")}><Text style={styles.TextArrow}>{">"}</Text></TouchableOpacity> : ""}
       </View>
     </View>
   );
@@ -43,6 +46,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   textLeft: {
+    paddingLeft: 16,
     fontSize: 16,
     fontWeight: "600",
   },
