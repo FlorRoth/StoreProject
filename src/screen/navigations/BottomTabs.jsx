@@ -8,7 +8,7 @@ import ProfileScreen from "../ProfileScreen.jsx";
 import { HomeScreen } from "../HomeScreen.jsx";
 import { FormContext } from "../../contexts/FormContext.jsx";
 import { useContext } from "react";
-import Cart  from "../CartScreen.jsx";
+import Cart from "../CartScreen.jsx";
 
 const Tab = createBottomTabNavigator();
 export const BottomTabs = () => {

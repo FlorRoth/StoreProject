@@ -7,14 +7,14 @@ import SuccessfulScreen from "../SuccessfulScreen.jsx";
 import Categories from "../CategoriesScreen.jsx";
 import Products from "../ProductsScreen.jsx";
 import ProductItem from "../ProductItemScreen.jsx";
-import Cart from "../CartScreen.jsx"
+import Cart from "../CartScreen.jsx";
 
 const Stack = createStackNavigator();
 
 export const StackNavigators = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
+       <Stack.Screen
         name="BottomTabs"
         component={BottomTabs}
         options={{
@@ -25,8 +25,8 @@ export const StackNavigators = () => {
             elevation: 0,
           },
         }}
-      />
-      <Stack.Screen
+      /> 
+       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
         options={{
@@ -36,7 +36,7 @@ export const StackNavigators = () => {
             elevation: 0,
           },
         }}
-      />
+      /> 
       <Stack.Screen
         name="SignUpScreen"
         component={SignUpScreen}
@@ -49,6 +49,7 @@ export const StackNavigators = () => {
         }}
       />
       <Stack.Screen
+        name="SuccessfulScreen"
         options={{
           title: "",
           headerStyle: {
@@ -56,7 +57,6 @@ export const StackNavigators = () => {
             elevation: 0,
           },
         }}
-        name="SuccessfulScreen"
         component={SuccessfulScreen}
       />
       <Stack.Screen
@@ -102,13 +102,16 @@ export const StackNavigators = () => {
           },
         }}
       />
-      <Stack.Screen name="Cart" component={Cart}
-      options={{
-        title: "",
-        headerStyle: {
-          elevation: 0,
-        },
-      }} />
+      <Stack.Screen
+        name="Cart"
+        component={Cart}
+        options={{
+          title: "",
+          headerStyle: {
+            elevation: 0,
+          },
+        }}
+      />
     </Stack.Navigator>
   );
 };

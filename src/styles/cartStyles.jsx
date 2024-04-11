@@ -63,8 +63,8 @@ export const cartStyles = StyleSheet.create({
         backgroundColor: '#FFF',
         justifyContent: "space-between",
         paddingHorizontal: 7,
-        height: 30,
-        width: 80,
+        height: 36,
+        width: 84,
         borderRadius: 40,
         fontWeight: '900',
         position: 'absolute',
@@ -113,7 +113,8 @@ export const cartStyles = StyleSheet.create({
 
     containerTotal: {
         flexDirection: "row", 
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        
     },
     
     textTotal: {
@@ -138,5 +139,16 @@ export const cartStyles = StyleSheet.create({
         fontSize: 9,
         color: "#fff",
         fontWeight: "800"
+    },
+
+    paymentContainerButtons: {
+        marginTop: 8,
+        height: 45,
+        width: 200,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+        backgroundColor: '#000000',
     }
 });

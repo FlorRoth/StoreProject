@@ -31,7 +31,7 @@ export default function RenderCartItem({item, key, quantity}) {
         <View style={cartStyles.cardProductHeader}>
           <TouchableOpacity onPress={() => removeFromCart(item.id)}>
             <Image
-                    style={{ height: 13, width: 13}}
+                    style={{ height: 24, width: 24}}
                     source={require('../../../assets/tash.png')}
             />
           </TouchableOpacity>
@@ -44,11 +44,11 @@ export default function RenderCartItem({item, key, quantity}) {
             <Image style={cartStyles.productImage} source={{ uri: item.image }} /> 
             <View style={[cartStyles.quantityContainer,cartStyles.shadow]}>
                 <TouchableOpacity onPress={decreaseQuantity}>
-                    <Text style={{ fontSize: 20 }}>-</Text>
+                    <Text style={{ fontSize: 24 }}>-</Text>
                 </TouchableOpacity>
-                <Text style={{ fontSize: 16 }}>{getQuantity(item.id)}</Text>
+                <Text style={{ fontSize: 20 }}>{getQuantity(item.id)}</Text>
                 <TouchableOpacity onPress={increaseQuantity}>
-                    <Text style={{ fontSize: 20 }}>+</Text>
+                    <Text style={{ fontSize: 24 }}>+</Text>
                 </TouchableOpacity>
             </View>
         </View> 

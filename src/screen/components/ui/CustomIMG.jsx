@@ -4,6 +4,10 @@ import facebook from '../../../../assets/authFacebook.png';
 import google from '../../../../assets/authGoogle.png';
 import logo from '../../../../assets/authLogo.png';
 import check from '../../../../assets/authCheck.png';
+import campana from '../../../../assets/campana.png';
+import global from '../../../../assets/global.png';
+import luna from '../../../../assets/luna.png';
+import pregunta from '../../../../assets/pregunta.png';
 
 export const CustomIMG = ({ width, height, img }) => {
   let selectedIcon;
@@ -17,6 +21,14 @@ export const CustomIMG = ({ width, height, img }) => {
     selectedIcon = logo;
   } else if (img === 'authCheck') {
     selectedIcon = check;
+  }else if (img === 'campana') {
+    selectedIcon = campana;
+  }else if (img === 'global') {
+    selectedIcon = global;
+  }else if (img === 'luna') {
+    selectedIcon = luna;
+  }else if (img === 'pregunta') {
+    selectedIcon = pregunta;
   }
   return (
     <Image
