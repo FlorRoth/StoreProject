@@ -35,7 +35,7 @@ export default Categories = ({ route }) => {
     return products.filter((producto) => producto.category === categorie);
   };
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "white", paddingHorizontal: 10}}>
       {state.isLoading ? (
         <ActivityIndicator size="large" color="#000000" />
       ) : (
@@ -43,12 +43,6 @@ export default Categories = ({ route }) => {
           <View>
             <View style={styles.header}>
               <Text style={globalStyles.titleStyle}>Productos de {item} </Text>
-              <TouchableOpacity>
-                <Image
-                  style={{ height: 18, width: 18 }}
-                  source={require("../../assets/search.png")}
-                />
-              </TouchableOpacity>
             </View>
 
             <FlatList
@@ -79,6 +73,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 8,
+    paddingHorizontal: 10,
   },
 });

@@ -34,12 +34,6 @@ export default function Products() {
           <View>
             <View style={styles.header}>
               <Text style={globalStyles.titleStyle}>Productos</Text>
-              <TouchableOpacity>
-                <Image
-                  style={{ height: 22, width: 22 }}
-                  source={require("../../assets/search.png")}
-                />
-              </TouchableOpacity>
             </View>
             <FlatList
               contentContainerStyle={productsStyles.listProductsContainer}
