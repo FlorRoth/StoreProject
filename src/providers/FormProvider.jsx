@@ -2,6 +2,7 @@ import { useReducer, useState } from "react";
 import { FormContext } from "../contexts/FormContext";
 import { FormReducer } from "../reducers/FormReducer";
 import { axiosApi } from "../config/AxiosApi";
+import { useNavigation } from "@react-navigation/core";
 
 const initialValues = {
   isLogged: false,
@@ -15,6 +16,7 @@ export const FormProvider = ({ children }) => {
   const [formState, setFormState] = useState({});
   const [state, dispatch] = useReducer(FormReducer, initialValues);
   const { UserName = "", Email = "", Password = "" } = formState;
+  const navigation = useNavigation();
 
   const postLogin = async () => {
     dispatch({
@@ -110,6 +112,7 @@ export const FormProvider = ({ children }) => {
       },
       phone: "null",
     });
+    navigation.navigate("SuccessfulScreen");
   };
   const logout = () => {
     dispatch({

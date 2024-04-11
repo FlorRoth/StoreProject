@@ -31,16 +31,16 @@ export default function Products() {
         <ActivityIndicator size="large" color="#000000" />
       ) : (
         <View style={productsStyles.productsContainer}>
-          <View style={productsStyles.headerContainer}>
-            <TouchableOpacity>
-              <Image
-                style={{ height: 22, width: 22 }}
-                source={require("../../assets/search.png")}
-              />
-            </TouchableOpacity>
-          </View>
           <View>
-            <Text style={globalStyles.titleStyle}>Productos</Text>
+            <View style={styles.header}>
+              <Text style={globalStyles.titleStyle}>Productos</Text>
+              <TouchableOpacity>
+                <Image
+                  style={{ height: 22, width: 22 }}
+                  source={require("../../assets/search.png")}
+                />
+              </TouchableOpacity>
+            </View>
             <FlatList
               contentContainerStyle={productsStyles.listProductsContainer}
               data={state.products}
@@ -63,3 +63,13 @@ export default function Products() {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 8,
+    marginVertical: 12,
+  },
+});
