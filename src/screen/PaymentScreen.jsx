@@ -85,7 +85,7 @@ export default PaymentScreen = ({ route }) => {
       Alert.alert('Successfully completed purchase!', 'We will contact you as soon as possible.', [
       {text: 'OK', onPress: () => {
         clearCart();
-        navigation.navigate('Productos');
+        navigation.navigate('Products');
       }},
     ]); 
 

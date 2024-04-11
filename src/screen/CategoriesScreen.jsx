@@ -42,7 +42,7 @@ export default Categories = ({ route }) => {
         <View style={productsStyles.productItemcontainer}>
           <View>
             <View style={styles.header}>
-              <Text style={globalStyles.titleStyle}>Productos de {item} </Text>
+              <Text style={globalStyles.titleStyle}>Products by {item} </Text>
             </View>
 
             <FlatList
