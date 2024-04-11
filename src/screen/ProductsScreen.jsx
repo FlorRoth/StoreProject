@@ -26,7 +26,7 @@ export default function Products() {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "white", paddingHorizontal: 10}}>
       {state.isLoading ? (
         <ActivityIndicator size="large" color="#000000" />
       ) : (

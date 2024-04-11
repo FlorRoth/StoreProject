@@ -75,6 +75,17 @@ export const CartProvider = ({ children }) => {
   };
 
 
+  const clearCart = () => {
+    dispatch({
+      type: types.cart.updateCartItems,
+      payload: {
+         cartItems: [],
+         isLoading: false
+      } 
+    });
+  }
+
+
   const loadCartItem = async () => {
     try {
       const items = await AsyncStorage.getItem("CartItems");
@@ -107,7 +118,8 @@ export const CartProvider = ({ children }) => {
         addToCart,
         loadCartItem,
         removeFromCart,
-        getQuantity
+        getQuantity,
+        clearCart
       }}>
     {children}
     </CartContext.Provider>

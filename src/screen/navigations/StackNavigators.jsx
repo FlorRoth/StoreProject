@@ -14,7 +14,7 @@ const Stack = createStackNavigator();
 export const StackNavigators = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen
+       <Stack.Screen
         name="BottomTabs"
         component={BottomTabs}
         options={{
@@ -25,8 +25,8 @@ export const StackNavigators = () => {
             elevation: 0,
           },
         }}
-      />
-      <Stack.Screen
+      /> 
+       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
         options={{
@@ -36,7 +36,7 @@ export const StackNavigators = () => {
             elevation: 0,
           },
         }}
-      />
+      /> 
       <Stack.Screen
         name="SignUpScreen"
         component={SignUpScreen}
