@@ -8,7 +8,9 @@ export const CarouselCategoriesCards = ({ item }) => {
     <TouchableOpacity   onPress={()=>navigation.navigate("ProductItem", { item: item })}>
       <View style={styles.categoriesButton}>
         <Image
-          style={{ width: "100%", height: "100%", borderRadius: 20 }}
+          style={{ width: "100%", height: "100%", borderRadius: 20,objectFit: "scale-down",
+          borderColor: '#DDDDDD',
+          borderWidth: 1,}}
           source={{ uri: item.image }}
         />
         <Text  numberOfLines={2} ellipsizeMode="tail"  style={styles.text}>{item.title}</Text>

@@ -19,7 +19,7 @@ export const CarouselCategories = ({ name, dataProduct }) => {
         onPress={() => navigation.navigate("Categories", { item: name })}
       >
         <Text style={styles.text}>{name.toUpperCase()}</Text>
-        <Text style={styles.text}>VER TODO</Text>
+        <Text style={styles.text}>VIEW ALL</Text>
       </Pressable>
 
       <FlatList

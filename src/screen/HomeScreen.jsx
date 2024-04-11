@@ -37,15 +37,15 @@ export const HomeScreen = () => {
         data={state.categories}
         ListHeaderComponent={() => (
           <View style={styles.welcomeContainer}>
-            <Text style={styles.welcomeTitle}>Bienvenido,</Text>
+            <Text style={styles.welcomeTitle}>Welcome to,</Text>
             <Text style={styles.subTitle}>KWIK-E-MART</Text>
             <Image
               style={{ width: "100%", height: 150 }}
               source={require("../../assets/Logo.png")}
             />
 
-            <Text style={styles.categoriesTitle}>Productos Populares</Text>
-            <Text style={styles.categoriesSubtitle}>Por Categoria</Text>
+            <Text style={styles.categoriesTitle}>Popular Products</Text>
+            <Text style={styles.categoriesSubtitle}>By Category</Text>
           </View>
         )}
         renderItem={({ item }) => (
@@ -54,7 +54,8 @@ export const HomeScreen = () => {
             dataProduct={productsByCategorie(item)}
           />
         )}
-        keyExtractor={(item) => item.id}
+        
+        keyExtractor={(item) => item}
         style={{ paddingHorizontal: 10 }}
       />
     </SafeAreaView>
@@ -65,6 +66,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FFFFFF",
+    paddingHorizontal: 10
   },
   welcomeContainer: {
     marginVertical: 5,

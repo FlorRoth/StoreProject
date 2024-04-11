@@ -18,7 +18,7 @@ export const FormReducer = (state = {}, action) => {
         user: null,
         isLogged: false,
         token: "",
-        msg: "Usuario deslogueado",
+        msg: "User logged out",
       };
     default:
       return state;

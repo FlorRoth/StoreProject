@@ -27,7 +27,13 @@ export const ProductProvider = ({ children }) => {
 
 
   const getProducts = async () => {
-
+    dispatch({
+      type: types.product.getProducts,
+      payload: {
+        ...state,
+        isLoading: true,
+      },
+    });
     try {
 
       const { data } = await axiosApi.get('/products')
