@@ -17,7 +17,7 @@ export default function SignUpScreen() {
       useSignUpValidations(setErrorMessage, formState, postSignUp);
       return
     }
-    setErrorMessage("click en checkbox.");
+    setErrorMessage("Click en checkbox.");
   };
 
   return (

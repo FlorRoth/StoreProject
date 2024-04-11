@@ -26,7 +26,7 @@ export default function LoginScreen() {
     <ScrollView style={styles.containerLogin}>
       <CustomHeader
         tittle={"Welcome!"}
-        subTittle={"please login or sign up to continue our app"}
+        subTittle={"Please login or sign up to continue our app"}
       />
       <View style={styles.form}>
         <Text>{errorMessage}</Text>

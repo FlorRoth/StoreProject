@@ -29,7 +29,7 @@ export const BottomTabs = () => {
       }}
     >
       <Tab.Screen
-        name="inicio"
+        name="Home"
         component={HomeScreen}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -42,7 +42,7 @@ export const BottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Productos"
+        name="Products"
         component={Products}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -56,7 +56,7 @@ export const BottomTabs = () => {
       />
       {state.isLogged ? (
         <Tab.Screen
-          name="Perfil"
+          name="Profile"
           component={ProfileScreen}
           options={{
             tabBarIcon: ({ focused }) => (
@@ -85,7 +85,7 @@ export const BottomTabs = () => {
       )}
 
       <Tab.Screen
-        name="Carrito"
+        name="Cart"
         component={Cart}
         options={{
           tabBarIcon: ({ focused }) => (

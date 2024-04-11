@@ -40,11 +40,11 @@ export default PaymentScreen = ({ route }) => {
     const updateCardDetails = () => {
 
       if (!cardHolder || !cardNumber || !expDate || !cvv) {
-        Alert.alert('Error', 'Todos los campos son obligatorios');
+        Alert.alert('Error', 'All the fields are required.');
         return;
       }
       if (!validateExpDate(expDate)) {
-        Alert.alert('Error', 'El formato de la fecha de expiración debe ser "MM/YY"');
+        Alert.alert('Error', 'The expiration date format must be "MM/YYY".');
         return;
       }
 
@@ -82,7 +82,7 @@ export default PaymentScreen = ({ route }) => {
 
 
     const buttonAlert = () =>
-      Alert.alert('Compra realizada con exito!', 'Nos comunicaremos con vos a la brevedad.', [
+      Alert.alert('Successfully completed purchase!', 'We will contact you as soon as possible.', [
       {text: 'OK', onPress: () => {
         clearCart();
         navigation.navigate('Products');

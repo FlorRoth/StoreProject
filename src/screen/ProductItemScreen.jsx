@@ -48,13 +48,13 @@ export default ProductItem = ({ route }) => {
   const handleAddToCart = (product, quantity) => {
     addToCart(product, quantity);
  
-    Alert.alert('','Producto agregado al carrito con exito!', [
+    Alert.alert('','Product added to cart successfully!', [
       {
-        text: 'Seguir comprando ',
+        text: 'Continue shopping',
         onPress: () => navigation.navigate('Products'),
       },
       {
-        text: 'Cancelar',
+        text: 'Cancel',
         style: 'cancel',
       }
     ]); 
