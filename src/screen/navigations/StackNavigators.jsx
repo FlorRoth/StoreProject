@@ -62,7 +62,7 @@ export const StackNavigators = () => {
           backgroundColor: "#ffff",
           elevation: 0,
         },
-      }} name="Products" component={Products} />
+      }} name="ProductsScreen" component={Products} />
 
 
       <Stack.Screen options={{
@@ -87,7 +87,7 @@ export const StackNavigators = () => {
           elevation: 0,
         },
       }} />
-      <Stack.Screen name="Cart" component={Cart}
+      <Stack.Screen name="CartScreen" component={Cart}
       options={{
         title: "",
         headerStyle: {
