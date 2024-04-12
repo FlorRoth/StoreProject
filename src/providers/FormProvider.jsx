@@ -41,7 +41,7 @@ export const FormProvider = ({ children }) => {
           },
           isLogged: true,
           token: res.data,
-          msg: "LOGUEADO",
+          msg: "Logged in",
           isLoading: false,
         },
       });

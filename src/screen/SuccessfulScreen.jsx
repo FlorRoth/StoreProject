@@ -7,7 +7,7 @@ export default function SuccessfulScreen() {
   const navigation = useNavigation();
 
   const onHandleShopping = () => {
-    navigation.navigate("inicio");
+    navigation.navigate("Home");
   };
 
   return (

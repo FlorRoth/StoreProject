@@ -17,15 +17,15 @@ export const useSignUpValidations = (
     Password.trim() === "" ||
     ConfirmPassword.trim() === ""
   ) {
-    setErrorMessage("Todos los campos son obligatorios.");
+    setErrorMessage("All the fields are required.");
     return;
   }
   if (UserName.length < 2 || UserName.length > 24) {
-    setErrorMessage("Usuario invalido.");
+    setErrorMessage("Invalid username.");
     return;
   }
   if (!validateEmail(email) || email.length > 35) {
-    setErrorMessage("E-mail no valido.");
+    setErrorMessage("Invalid e-mail address");
     return;
   }
   if (
@@ -35,10 +35,10 @@ export const useSignUpValidations = (
     ConfirmPassword.length > 20 ||
     Password !== ConfirmPassword
   ) {
-    setErrorMessage("Contraseña invalida o las contraseñas no coinciden.");
+    setErrorMessage("Invalid password or passwords do not match.");
     return;
   }
-  setErrorMessage("Registro completo.");
+  setErrorMessage("Complete registration.");
   postSignUp();
   return;
 };
