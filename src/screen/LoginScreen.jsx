@@ -14,7 +14,7 @@ export default function LoginScreen() {
 
   useEffect(() => {
     if (state.isLogged) {
-      navigation.navigate("Perfil");
+      navigation.navigate("Profile");
     }
   }, [state]);
 

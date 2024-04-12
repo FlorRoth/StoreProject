@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "StoreProject",
-    "slug": "kiwkemart",
+    "slug": "storeproject-wu4JJiykih_KRPuWJHQbS",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/favorite-white.png",
@@ -30,9 +30,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "8178c8f5-02cd-40fd-a31f-4f166b14e8a5"
+        "projectId": "32c1522f-e949-4fe7-a313-732fe37871bb"
       }
     },
-    "owner": "gabogarcia1"
+    "owner": "florroth"
   }
 }

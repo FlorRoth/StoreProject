@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { Text, View, TouchableOpacity, Image} from 'react-native';
 import { CartContext } from '../../contexts/CartContext';
 import { cartStyles } from '../../styles/cartStyles';
