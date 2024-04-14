@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { useForm } from "../../../hook/useForm";
 
-export const CustomInput = ({ text, input, mode = "text", password = false }) => {
+export const CustomInput = ({ text, input, mode = "text", password = false, length = 12 }) => {
   const { onChangeInput } = useForm();
 
   return (
@@ -9,6 +9,7 @@ export const CustomInput = ({ text, input, mode = "text", password = false }) =>
       <Text style={styles.formName}>{text}</Text>
       <View>
         <TextInput
+          maxLength={length}
           style={styles.formInput}
           secureTextEntry={password}
           inputMode={mode}
