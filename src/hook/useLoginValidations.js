@@ -9,7 +9,7 @@ export const useLoginValidations = (setErrorMessage, formState, postLogin) => {
     setErrorMessage("Invalid username or password.");
     return;
   }
-  if (Password.length > 20 || Password.length <= 5) {
+  if (Password.length > 24 || Password.length <= 5) {
     setErrorMessage("Invalid username or password.");
     return;
   }

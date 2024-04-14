@@ -8,6 +8,7 @@ import campana from '../../../../assets/campana.png';
 import global from '../../../../assets/global.png';
 import luna from '../../../../assets/luna.png';
 import pregunta from '../../../../assets/pregunta.png';
+import logoPerfil from '../../../../assets/logoPerfil.png';
 
 export const CustomIMG = ({ width, height, img }) => {
   let selectedIcon;
@@ -21,14 +22,16 @@ export const CustomIMG = ({ width, height, img }) => {
     selectedIcon = logo;
   } else if (img === 'authCheck') {
     selectedIcon = check;
-  }else if (img === 'campana') {
+  } else if (img === 'campana') {
     selectedIcon = campana;
-  }else if (img === 'global') {
+  } else if (img === 'global') {
     selectedIcon = global;
-  }else if (img === 'luna') {
+  } else if (img === 'luna') {
     selectedIcon = luna;
-  }else if (img === 'pregunta') {
+  } else if (img === 'pregunta') {
     selectedIcon = pregunta;
+  } else if (img === 'logoPerfil') {
+    selectedIcon = logoPerfil;
   }
   return (
     <Image

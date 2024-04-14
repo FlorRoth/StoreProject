@@ -3,13 +3,12 @@ import { CustomButton } from "../screen/components/ui/CustomButton.jsx";
 import { CustomInput } from "../screen/components/ui/CustomInput.jsx";
 import { CustomHeader } from "../screen/components/home/CustomHeader.jsx";
 import { FormContext } from "../contexts/FormContext.jsx";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useLoginValidations } from "../hook/useLoginValidations.js";
 import { useNavigation } from "@react-navigation/core";
 import { Spinner } from "./components/ui/Spinner.jsx";
 export default function LoginScreen() {
-  const [errorMessage, setErrorMessage] = useState("");
-  const { formState, getUserData, state, postLogin } = useContext(FormContext);
+  const { formState, state, postLogin, errorMessage, setErrorMessage, getUserData } = useContext(FormContext);
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -17,6 +16,10 @@ export default function LoginScreen() {
       navigation.navigate("Profile");
     }
   }, [state]);
+
+  useEffect(() => {
+    setErrorMessage("");
+  }, []);
 
   const onSubmitLogin = () => {
     useLoginValidations(setErrorMessage, formState, postLogin);
@@ -31,8 +34,8 @@ export default function LoginScreen() {
       <View style={styles.form}>
         <Text>{errorMessage}</Text>
 
-        <CustomInput text={"User Name"} input={"UserName"} />
-        <CustomInput text={"Password"} input={"Password"} password={true} />
+        <CustomInput text={"User Name"} input={"UserName"} length={24} />
+        <CustomInput text={"Password"} input={"Password"} password={true} length={24} />
         <View style={styles.buttons}>
           {state.isLoading ? (
             <Spinner />

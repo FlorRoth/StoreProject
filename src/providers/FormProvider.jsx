@@ -13,6 +13,7 @@ const initialValues = {
 };
 
 export const FormProvider = ({ children }) => {
+  const [errorMessage, setErrorMessage] = useState("");
   const [formState, setFormState] = useState({});
   const [state, dispatch] = useReducer(FormReducer, initialValues);
   const { UserName = "", Email = "", Password = "" } = formState;
@@ -32,7 +33,6 @@ export const FormProvider = ({ children }) => {
         username: UserName,
         password: Password,
       });
-
       dispatch({
         type: "LOGIN",
         payload: {
@@ -58,6 +58,7 @@ export const FormProvider = ({ children }) => {
           isLoading: false,
         },
       });
+      setErrorMessage("Invalid username or password.")
     }
   };
 
@@ -73,7 +74,6 @@ export const FormProvider = ({ children }) => {
       const res = await axiosApi.get("/users");
       const resData = await res.data;
       const userData = await resData.find((us) => us.username == state.user.username);
-
       dispatch({
         type: "LOGIN",
         payload: { ...state, isLoading: false, user: userData },
@@ -83,7 +83,7 @@ export const FormProvider = ({ children }) => {
         type: "LOGIN",
         payload: {
           user: {
-            username: UserName,
+            username: "",
           },
           isLogged: false,
           token: "",
@@ -115,9 +115,11 @@ export const FormProvider = ({ children }) => {
       },
       phone: "null",
     });
+    setFormState({});
     navigation.navigate("SuccessfulScreen");
   };
   const logout = () => {
+    setFormState({});
     dispatch({
       type: "LOGOUT",
     });
@@ -132,6 +134,8 @@ export const FormProvider = ({ children }) => {
         getUserData,
         postLogin,
         postSignUp,
+        errorMessage,
+        setErrorMessage,
       }}
     >
       {children}
