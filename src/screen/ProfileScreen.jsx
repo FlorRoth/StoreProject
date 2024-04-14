@@ -8,11 +8,11 @@ import { CustomIMG } from "./components/ui/CustomIMG";
 import { CustomSetting } from "./components/ui/CustomSetting";
 
 export default function ProfileScreen() {
-  const { state, getUserData, logout } = useContext(FormContext);
+  const { state, getUserData, logout, setErrorMessage } = useContext(FormContext);
 
   useEffect(() => {
     getUserData();
-  }, [state.isLogged]);
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -21,8 +21,7 @@ export default function ProfileScreen() {
       ) : (
         <ScrollView>
           <View style={styles.header}>
-            <CustomIMG width={120} height={120} img={"authLogo"} />
-            <Text>Upload image</Text>
+            <CustomIMG width={120} height={120} img={"logoPerfil"} />
           </View>
           <View style={{ gap: 12 }}>
             <CustomInfo left={"Name"} right={state.user.username} />

@@ -38,7 +38,6 @@ export const useSignUpValidations = (
     setErrorMessage("Invalid password or passwords do not match.");
     return;
   }
-  setErrorMessage("Complete registration.");
   postSignUp();
   return;
 };
