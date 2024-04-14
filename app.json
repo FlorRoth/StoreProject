@@ -1,13 +1,13 @@
 {
   "expo": {
     "name": "StoreProject",
-    "slug": "StoreProject",
+    "slug": "storeproject-wu4JJiykih_KRPuWJHQbS",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/Logo.png",
+    "icon": "./assets/favorite-white.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/Logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -15,16 +15,24 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.gabogarcia1.kiwkemart"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/favorite-white.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.gabogarcia1.kiwkemart"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "32c1522f-e949-4fe7-a313-732fe37871bb"
+      }
+    },
+    "owner": "florroth"
   }
 }

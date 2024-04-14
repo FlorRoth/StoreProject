@@ -9,7 +9,7 @@ import { CartContext } from "../contexts/CartContext";
 const initialValues = {
   cartItems: [],
   total: 0,
-  isLoading: true,
+  isLoading: false,
 }
 
 export const CartProvider = ({ children }) => {

@@ -72,10 +72,11 @@ export const FormProvider = ({ children }) => {
     });
     try {
       const res = await axiosApi.get("/users");
-      const data = res.data.find((data) => data.username === UserName);
+      const resData = await res.data;
+      const userData = await resData.find((us) => us.username == state.user.username);
       dispatch({
         type: "LOGIN",
-        payload: { ...state, isLoading: false, user: data },
+        payload: { ...state, isLoading: false, user: userData },
       });
     } catch (error) {
       dispatch({
