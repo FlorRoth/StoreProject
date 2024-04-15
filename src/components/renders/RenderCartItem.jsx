@@ -13,13 +13,13 @@ export default function RenderCartItem({item, key, quantity}) {
   const decreaseQuantity = () => {
     const currentQty = getQuantity(item.id);
     if (currentQty > 1) {
-      addToCart(item, currentQty - 1);
+      addToCart(item,-1);
     }
   };
 
   const increaseQuantity = () => {
     const currentQty = getQuantity(item.id);
-    addToCart(item, currentQty + 1);
+    addToCart(item, 1);
   };
 
 

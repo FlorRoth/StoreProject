@@ -37,7 +37,7 @@ export const CartProvider = ({ children }) => {
       if (existingItemIndex !== -1) {
           cartItems[existingItemIndex] = {
               item: product,
-              quantity: quantity
+              quantity: cartItems[existingItemIndex].quantity + quantity
           };
       }
       else {
