@@ -44,6 +44,17 @@ To login use our Registered users:
 | jimmie_k | klein*#%* |
 
 
+## Testing
+
+### Test the Application with Mobile Phone
+1) Make sure you have the Expo Go app installed on your mobile device. You can find it in the App Store (IOS) or in the Google Play Store (Android).
+2) Open the Expo Go app on your device.
+3) Scan the following QR code with your device's camera:
+* **Android:** https://github.com/FlorRoth/StoreProject/blob/master/Preview-Android.png
+* **IOS:** https://github.com/FlorRoth/StoreProject/blob/master/Preview-IOS.png
+4) Once the QR code is scanned, the app will automatically load on your device. This may take a few seconds
+
+
 
 
 
