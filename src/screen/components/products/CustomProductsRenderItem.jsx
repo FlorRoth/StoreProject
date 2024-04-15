@@ -13,7 +13,10 @@ export const RenderProductsItem = ({ item, state, toggleFavorite }) => {
       <View style={productsStyles.cardProductHeader}>
         <TouchableOpacity onPress={() => toggleFavorite(item.id)}>
           <Image
-            style={{ height: 30, width: 30 }}
+            style={{ height: 30, width: 30, borderRadius: 20,
+            
+              borderColor: "black",
+              borderWidth: 1, }}
             source={
               state.favorites.includes(item.id)
                 ? require("../../../../assets/favorite-black.png")
