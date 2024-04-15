@@ -33,7 +33,7 @@ To login use our Registered users:
 
 | Username | Password |
 | ----------- | ----------- |
-| johnd | Title |
+| johnd | m38rmF$ |
 | kevinryan | kev02937@ |
 | donero | ewedon |
 | derek | jklg*_56 |
