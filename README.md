@@ -1,19 +1,33 @@
 # KIWK-E-MART
 
 ## _ONLINE STORE_
+Development of an application in React Native that presents the simulation of a store, with a collection of available products, offering details of each one, allowing the desired products to be added to the cart and make a fictitious purchase.
+
+## Requirements
+ - NodeJs installed
+
+## Construction 🛠️
+* **Language:** JavaScript
+* **Framework:** Expo
+* **App Mobile library:** React Native
 
 ## Development
 
-Want to run the store locally?
 
-Clone the repository
+### Installation
+1) Clone repository.
+2) Run ```npm install ```.
 
-Open your favorite Terminal and run these commands.
+#### Execution
+Open your favorite Terminal and run this commands.
 
-```sh
-npm install
-npx expo start
-```
+    npx expo start
+
+
+## API
+Used: 'Fake Store' rest API that simulates fake store for your shopping or e-commerce website prototype
+
+**Documentation:** https://fakestoreapi.com/
 
 To login use our Registered users:
 
@@ -28,4 +42,9 @@ To login use our Registered users:
 | hopkins | William56$hj |
 | kate_h | kfejk@*_ |
 | jimmie_k | klein*#%* |
+
+
+
+
+
 
