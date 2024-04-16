@@ -14,10 +14,10 @@ import { globalStyles } from "../styles/globalStyles";
 import { ProductContext } from "../contexts/ProductContext";
 import { useNavigation } from "@react-navigation/native";
 import { CartContext } from "../contexts/CartContext";
-import CartIcon from "../components/ui/CartIcon";
-import RenderStars from "../components/renders/RenderStars";
-import RenderProductSizes from "../components/renders/RenderProductSizes";
-import Spinner from "../components/ui/Spinner";
+import CartIcon from "./components/ui/CartIcon";
+import RenderStars from "./components/renders/RenderStars";
+import RenderProductSizes from "./components/renders/RenderProductSizes";
+import Spinner from "./components/ui/Spinner";
 export default ProductItem = ({ route }) => {
   const { item } = route.params;
   const [quantity, setQuantity] = useState(1);

@@ -4,8 +4,8 @@ import { cartStyles } from '../styles/cartStyles';
 import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { CartContext } from '../contexts/CartContext';
-import Spinner from '../components/ui/Spinner';
-import RenderCartItem from '../components/renders/RenderCartItem';
+import Spinner from './components/ui/Spinner';
+import RenderCartItem from './components/renders/RenderCartItem';
 import { globalStyles } from '../styles/globalStyles';
 
 
