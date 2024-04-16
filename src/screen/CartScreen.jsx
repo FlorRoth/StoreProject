@@ -7,6 +7,7 @@ import { CartContext } from '../contexts/CartContext';
 import Spinner from './components/ui/Spinner';
 import RenderCartItem from './components/renders/RenderCartItem';
 import { globalStyles } from '../styles/globalStyles';
+import { CustomButton } from './components/ui/CustomButton';
 
 
 export default function Cart() {
@@ -37,16 +38,12 @@ export default function Cart() {
                 </View>
 
                 <View style={cartStyles.addToCartContainer}>
-                  <TouchableOpacity style={cartStyles.addToCartButton} onPress={() => navigation.navigate('Payment')}>
-                    <View style={[{flex:1},cartStyles.containerTotal]}>
-                        <Text style={cartStyles.addToCartButtonText}>Buy</Text>
-                        <Image
-                            style={{ height: 30, width: 30, marginEnd: 5}}
-                            source={require('../../assets/arrow-button-cart.png')}
-                        />
-                    </View>
-        
-                  </TouchableOpacity>
+                  <CustomButton  
+                    ButtonPress={() => navigation.navigate('Payment')}
+                    btnText={"Buy"}
+                    bckColor={"#000000"}
+                    colorT={"#FFFFFF"}
+                  />
                 </View>
           </View> 
 

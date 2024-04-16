@@ -1,12 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect} from "react";
 import {
   StyleSheet,
   Text,
   View,
   FlatList,
-  TouchableOpacity,
-  Image,
-  SafeAreaView,
   ActivityIndicator,
 } from "react-native";
 import { productsStyles } from "../styles/productsStyles";

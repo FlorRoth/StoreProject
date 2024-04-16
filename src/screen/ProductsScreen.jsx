@@ -5,8 +5,6 @@ import {
   Text,
   View,
   FlatList,
-  TouchableOpacity,
-  Image,
   SafeAreaView,
   ActivityIndicator,
 } from "react-native";
