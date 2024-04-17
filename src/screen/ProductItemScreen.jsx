@@ -14,10 +14,11 @@ import { globalStyles } from "../styles/globalStyles";
 import { ProductContext } from "../contexts/ProductContext";
 import { useNavigation } from "@react-navigation/native";
 import { CartContext } from "../contexts/CartContext";
-import CartIcon from "../components/ui/CartIcon";
-import RenderStars from "../components/renders/RenderStars";
-import RenderProductSizes from "../components/renders/RenderProductSizes";
-import Spinner from "../components/ui/Spinner";
+import CartIcon from "./components/ui/CartIcon";
+import RenderStars from "./components/renders/RenderStars";
+import RenderProductSizes from "./components/renders/RenderProductSizes";
+import Spinner from "./components/ui/Spinner";
+import { CustomButton } from "./components/ui/CustomButton";
 export default ProductItem = ({ route }) => {
   const { item } = route.params;
   const [quantity, setQuantity] = useState(1);
@@ -156,7 +157,7 @@ export default ProductItem = ({ route }) => {
           </View>
         </ScrollView>
         <View style={productsStyles.addToCartContainer}>
-          <View style={{ flex: 1, marginTop: 5 }}>
+          <View style={{ flex: 1, marginTop: 5}}>
             <Text style={{ fontSize: 10, color: "#AAAAAA" }}>Total Price</Text>
             <Text style={productsStyles.productPrice}>
               $ {item.price.toFixed(2)}
@@ -177,6 +178,7 @@ export default ProductItem = ({ route }) => {
             />
             <Text style={productsStyles.addToCartButtonText}>Add To Cart</Text>
           </TouchableOpacity>
+
         </View>
       </View>
     </View>

@@ -18,7 +18,6 @@ export const paymentStyles = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 10,
         margin: 0,
-        height: 215
     },
 
     cardContainer: {
