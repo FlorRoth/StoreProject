@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image } from 'react-native';
-import { productsStyles } from '../../styles/productsStyles';
+import { productsStyles } from '../../../styles/productsStyles';
+;
 
 
 export default function RenderStars(ratingItem) {
@@ -12,7 +13,7 @@ export default function RenderStars(ratingItem) {
           <Image
             key={i}
             style={productsStyles.star}
-            source={require('../../../assets/star.png')}
+            source={require('../../../../assets/star.png')}
           />
         );
       } else {
@@ -20,7 +21,7 @@ export default function RenderStars(ratingItem) {
           <Image
             key={i}
             style={productsStyles.star}
-            source={require('../../../assets/empty_star.png')} 
+            source={require('../../../../assets/empty_star.png')} 
           />
         );
       }

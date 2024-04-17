@@ -14,7 +14,6 @@ export const RenderProductsItem = ({ item, state, toggleFavorite }) => {
         <TouchableOpacity onPress={() => toggleFavorite(item.id)}>
           <Image
             style={{ height: 30, width: 30, borderRadius: 20,
-            
               borderColor: "black",
               borderWidth: 1, }}
             source={

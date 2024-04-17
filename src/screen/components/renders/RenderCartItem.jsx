@@ -1,11 +1,11 @@
 import { useContext } from 'react';
 import { Text, View, TouchableOpacity, Image} from 'react-native';
-import { CartContext } from '../../contexts/CartContext';
-import { cartStyles } from '../../styles/cartStyles';
+import { CartContext } from '../../../contexts/CartContext';
+import { cartStyles } from '../../../styles/cartStyles';
 
 
 
-export default function RenderCartItem({item, key, quantity}) {
+export default function ({item, key, quantity}) {
 
   const {addToCart,removeFromCart, getQuantity} = useContext(CartContext); 
    
@@ -32,7 +32,7 @@ export default function RenderCartItem({item, key, quantity}) {
           <TouchableOpacity onPress={() => removeFromCart(item.id)}>
             <Image
                     style={{ height: 24, width: 24}}
-                    source={require('../../../assets/tash.png')}
+                    source={require('../../../../assets/tash.png')}
             />
           </TouchableOpacity>
 

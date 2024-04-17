@@ -1,6 +1,7 @@
 import { Text, View,TouchableOpacity } from "react-native";
-import { globalStyles } from "../../styles/globalStyles";
-import { productsStyles } from "../../styles/productsStyles";
+import { globalStyles } from "../../../styles/globalStyles";
+import { productsStyles } from "../../../styles/productsStyles";
+
 
 
 export default function RenderProductSizes ({ sizes, onSizeSelected, selectedSize }) {

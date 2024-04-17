@@ -1,15 +1,17 @@
 
 import React, { useContext, useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, Alert, ScrollView } from 'react-native';
+import {Text, View, Image, Alert, ScrollView } from 'react-native';
 import { globalStyles } from '../styles/globalStyles';
 import { cartStyles } from '../styles/cartStyles';
 import { paymentStyles } from '../styles/paymentStyles';
-import { TextInput } from 'react-native-gesture-handler';
+
 import { useNavigation } from '@react-navigation/native';
 import { CartContext } from '../contexts/CartContext';
+import { CustomButton } from './components/ui/CustomButton';
+import { CustomInput } from './components/ui/CustomInput';
 
 
-export default PaymentScreen = ({ route }) => {
+export default PaymentScreen = () => {
 
   const {clearCart} = useContext(CartContext); 
 
@@ -94,79 +96,89 @@ export default PaymentScreen = ({ route }) => {
   return (
     <View style={globalStyles.container}>
         <Text style={globalStyles.titleStyle}>Payment</Text>
-        <ScrollView
-        horizontal
-        contentContainerStyle={paymentStyles.carouselContainer}
-        showsHorizontalScrollIndicator={false}
-        >
-          {cards.map((card) => (
-              <View key={card.id} style={paymentStyles.cardContainer}>
-                <Image source={{ uri: card.logo }} style={{width: 50,height: 30}} />
-                <Text style={paymentStyles.cardNumber}>{card.number}</Text>
-                <View style={paymentStyles.cardInfoContainer}>
-                    <View style={{flex: 1}}>
-                    <Text style={paymentStyles.cardInfoLabel}>Card Holder</Text>
-                    <Text style={paymentStyles.cardInfoValue}>{card.holder}</Text>
-                    </View>
-                    <View style={{flex: 1}}>
-                    <Text style={paymentStyles.cardInfoLabel}>Expiration</Text>
-                    <Text style={paymentStyles.cardInfoValue}>{card.expiration}</Text>
-                    </View>
+        <View style={{flex: 2}}>
+          <ScrollView
+          horizontal
+          contentContainerStyle={paymentStyles.carouselContainer}
+          showsHorizontalScrollIndicator={false}
+          >
+            {cards.map((card) => (
+                <View key={card.id} style={paymentStyles.cardContainer}>
+                  <Image source={{ uri: card.logo }} style={{width: 50,height: 30}} />
+                  <Text style={paymentStyles.cardNumber}>{card.number}</Text>
+                  <View style={paymentStyles.cardInfoContainer}>
+                      <View style={{flex: 1}}>
+                      <Text style={paymentStyles.cardInfoLabel}>Card Holder</Text>
+                      <Text style={paymentStyles.cardInfoValue}>{card.holder}</Text>
+                      </View>
+                      <View style={{flex: 1}}>
+                      <Text style={paymentStyles.cardInfoLabel}>Expiration</Text>
+                      <Text style={paymentStyles.cardInfoValue}>{card.expiration}</Text>
+                      </View>
+                  </View>
                 </View>
-              </View>
-          ))}
-        </ScrollView>
-        <ScrollView>
-          <View style={{paddingHorizontal: 10}}>
-            <Text style={{ fontSize: 18, color: "#000000", fontWeight: "900"}}>Card Details</Text>
-            <TextInput
-              style={paymentStyles.input}
-              placeholder="Card holder"
-              value={cardHolder}
+            ))}
+          </ScrollView>
+        </View>
+        <View style={{flex: 2}}>
+          <ScrollView>
+            <View style={{paddingHorizontal: 10}}>
+              <Text style={{ fontSize: 20, color: "#000000", fontWeight: "900", marginBottom: 15}}>Card Details</Text>
+
+              <CustomInput
+              text={"Card holder"} input={"CardHolder"} value={cardHolder} length={24}
               onChangeText={(text) => setCardHolder(text)}
-            />
-            <TextInput
-              style={paymentStyles.input}
-              placeholder="Card number"
-              value={cardNumber}
-              maxLength={12}
+              fontSizeText={16}
+              />
+              <CustomInput
+              text={"Card number"} input={"CardNumber"} value={cardNumber} length={12}
               onChangeText={(text) => setCardNumber(text)}
-              keyboardType="numeric"
-            />
-            <TextInput
-              style={paymentStyles.input}
-              placeholder="Exp date"
-              value={expDate}
-              maxLength={5}
+              mode='numeric'
+              fontSizeText={16}
+              />
+
+              <CustomInput
+              text={"Exp date"} input={"ExpDate"} value={expDate} length={5}
               onChangeText={(text) => setExpDate(text)}
-            />
-            <TextInput
-              style={paymentStyles.input}
-              placeholder="CVV"
-              secureTextEntry={true}
-              value={cvv}
-              maxLength={3}
+              fontSizeText={16}
+              />
+
+              <CustomInput
+              text={"CVV"} input={"CVV"} value={cvv} length={3}
               onChangeText={(text) => setCvv(text)}
-              keyboardType="numeric"
-            />
-            
-            <TouchableOpacity style={paymentStyles.paymentContainerButtons}  onPress={updateCardDetails}>
-                <Text style={cartStyles.addToCartButtonText}>Add Card</Text>
-          </TouchableOpacity>
-          </View>
+              mode='numeric'
+              password={true}
+              fontSizeText={16}
+              />
+
+              <CustomButton  
+                ButtonPress={updateCardDetails}
+                btnText={"Add Card"}
+                bckColor={"#000000"}
+                colorT={"#FFFFFF"}
+                
+              />
+            </View>
 
 
-        </ScrollView>
+          </ScrollView>
+        </View>
 
         <View style={[cartStyles.containerTotal, {marginTop: 10, marginBottom: 10} ]}>
-            <TouchableOpacity style={{ flexDirection: 'row',
-                    alignItems: 'center',}} onPress={() => navigation.navigate('Cart')}>
-                <Text style={cartStyles.textTotal}>Cancel</Text>
-            </TouchableOpacity>
-                    
-            <TouchableOpacity style={[paymentStyles.paymentContainerButtons,{width: 200}]}  onPress={buttonAlert}>
-                <Text style={cartStyles.addToCartButtonText}>Confirm payment</Text>
-            </TouchableOpacity>
+            <View style={[{width: 70}]} >
+              <CustomButton  
+                  ButtonPress={() => navigation.navigate('Cart')}
+                  btnText={"Cancel"}
+                  bckColor={"white"}
+                  colorT={"#919191"}
+                />
+            </View>
+            <View style={[{width: 200}]} >
+              <CustomButton  
+                ButtonPress={buttonAlert}
+                btnText={"Confirm payment"}
+              />
+            </View>
         </View>
   </View>
   )

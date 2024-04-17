@@ -1,12 +1,12 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import { useForm } from "../../../hook/useForm";
 
-export const CustomInput = ({ text, input, mode = "text", password = false, length = 12 }) => {
+export const CustomInput = ({ text, input, mode = "text", password = false, length = 12,onChangeText=false,value=null,fontSizeText=22 }) => {
   const { onChangeInput } = useForm();
 
   return (
     <View style={styles.formBox}>
-      <Text style={styles.formName}>{text}</Text>
+      <Text style={[styles.formName,{fontSize: fontSizeText}]}>{text}</Text>
       <View>
         <TextInput
           maxLength={length}
@@ -14,7 +14,8 @@ export const CustomInput = ({ text, input, mode = "text", password = false, leng
           secureTextEntry={password}
           inputMode={mode}
           placeholderTextColor={"#000"}
-          onChangeText={(value) => onChangeInput(input, value)}
+          value={value}
+          onChangeText={onChangeText ? onChangeText : (value) => onChangeInput(input, value)}
         />
       </View>
     </View>
@@ -29,7 +30,6 @@ const styles = StyleSheet.create({
     marginBottom: 28,
   },
   formName: {
-    fontSize: 22,
     fontWeight: "500",
   },
   formInput: {
