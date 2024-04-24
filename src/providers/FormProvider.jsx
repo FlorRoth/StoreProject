@@ -16,8 +16,17 @@ export const FormProvider = ({ children }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [formState, setFormState] = useState({});
   const [state, dispatch] = useReducer(FormReducer, initialValues);
+  const [theme, setTheme] = useState("light");
   const { UserName = "", Email = "", Password = "" } = formState;
   const navigation = useNavigation();
+
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
 
   const postLogin = async () => {
     dispatch({
@@ -58,7 +67,7 @@ export const FormProvider = ({ children }) => {
           isLoading: false,
         },
       });
-      setErrorMessage("Invalid username or password.")
+      setErrorMessage("Invalid username or password.");
     }
   };
 
@@ -73,7 +82,9 @@ export const FormProvider = ({ children }) => {
     try {
       const res = await axiosApi.get("/users");
       const resData = await res.data;
-      const userData = await resData.find((us) => us.username == state.user.username);
+      const userData = await resData.find(
+        (us) => us.username == state.user.username
+      );
       dispatch({
         type: "LOGIN",
         payload: { ...state, isLoading: false, user: userData },
@@ -129,6 +140,8 @@ export const FormProvider = ({ children }) => {
       value={{
         state,
         formState,
+        theme,
+        toggleTheme,
         logout,
         setFormState,
         getUserData,

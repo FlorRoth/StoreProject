@@ -7,22 +7,32 @@ import AuthScreen from "../AuthScreen.jsx";
 import ProfileScreen from "../ProfileScreen.jsx";
 import { HomeScreen } from "../HomeScreen.jsx";
 import { FormContext } from "../../contexts/FormContext.jsx";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import Cart from "../CartScreen.jsx";
 
 const Tab = createBottomTabNavigator();
 export const BottomTabs = () => {
-  const { state } = useContext(FormContext);
+  const { state, theme } = useContext(FormContext);
+
+  const [iconColor, seticonColor] = useState("black");
+
+  useEffect(() => {
+    if (theme == "dark") {
+      seticonColor("white");
+    } else seticonColor("black");
+  }, [theme]);
+
   return (
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
+          backgroundColor: theme == "dark" ? "#212121" : "white",
           height: 80,
           paddingTop: 10,
         },
         tabBarLabelStyle: {
-          color: "black",
+          color: theme == "dark" ? "white" : "black",
           fontSize: 10,
           fontWeight: "bold",
         },
@@ -36,7 +46,7 @@ export const BottomTabs = () => {
             <Ionicons
               name="home"
               size={32}
-              color={focused ? "black" : "grey"}
+              color={focused ? iconColor : "grey"}
             />
           ),
         }}
@@ -49,7 +59,7 @@ export const BottomTabs = () => {
             <Ionicons
               name="pricetags"
               size={32}
-              color={focused ? "black" : "grey"}
+              color={focused ? iconColor : "grey"}
             />
           ),
         }}
@@ -63,7 +73,7 @@ export const BottomTabs = () => {
               <Ionicons
                 name="person"
                 size={30}
-                color={focused ? "black" : "grey"}
+                color={focused ? iconColor : "grey"}
               />
             ),
           }}
@@ -77,7 +87,7 @@ export const BottomTabs = () => {
               <Ionicons
                 name="person"
                 size={30}
-                color={focused ? "black" : "grey"}
+                color={focused ? iconColor : "grey"}
               />
             ),
           }}
@@ -92,7 +102,7 @@ export const BottomTabs = () => {
             <Ionicons
               name="cart"
               size={30}
-              color={focused ? "black" : "grey"}
+              color={focused ? iconColor : "grey"}
             />
           ),
         }}

@@ -7,8 +7,17 @@ import { useContext, useEffect } from "react";
 import { useLoginValidations } from "../hook/useLoginValidations.js";
 import { useNavigation } from "@react-navigation/core";
 import { Spinner } from "./components/ui/Spinner.jsx";
+import { DarkTheme } from "@react-navigation/native";
 export default function LoginScreen() {
-  const { formState, state, postLogin, errorMessage, setErrorMessage, getUserData } = useContext(FormContext);
+  const {
+    formState,
+    theme,
+    state,
+    postLogin,
+    errorMessage,
+    setErrorMessage,
+    getUserData,
+  } = useContext(FormContext);
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -26,7 +35,12 @@ export default function LoginScreen() {
   };
 
   return (
-    <ScrollView style={styles.containerLogin}>
+    <ScrollView
+      style={[
+        styles.containerLogin,
+        { backgroundColor: theme == "dark" ? "#212121" : "white" },
+      ]}
+    >
       <CustomHeader
         tittle={"Welcome!"}
         subTittle={"Please login or sign up to continue our app"}
@@ -35,7 +49,12 @@ export default function LoginScreen() {
         <Text>{errorMessage}</Text>
 
         <CustomInput text={"User Name"} input={"UserName"} length={24} />
-        <CustomInput text={"Password"} input={"Password"} password={true} length={24} />
+        <CustomInput
+          text={"Password"}
+          input={"Password"}
+          password={true}
+          length={24}
+        />
         <View style={styles.buttons}>
           {state.isLoading ? (
             <Spinner />
@@ -55,17 +74,17 @@ export default function LoginScreen() {
           <CustomButton
             ButtonPress={() => navigation.navigate("PageNotFound")}
             btnText={"Continue with Google"}
-            bckColor={"#fff"}
+            bckColor={theme == "dark" ? "#212121" : "#fff"}
             borderC={"#ddd"}
-            colorT={"#606060"}
+            colorT={theme == "dark" ? "white" : "#606060"}
             img={"authGoogle"}
           />
           <CustomButton
             ButtonPress={() => navigation.navigate("PageNotFound")}
             btnText={"Continue with Apple"}
-            bckColor={"#fff"}
+            bckColor={theme == "dark" ? "#212121" : "#fff"}
             borderC={"#ddd"}
-            colorT={"#606060"}
+            colorT={theme == "dark" ? "white" : "#606060"}
             img="authApple"
           />
         </View>

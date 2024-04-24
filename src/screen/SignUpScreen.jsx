@@ -9,12 +9,13 @@ import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 export default function SignUpScreen() {
   const [isSelected, setSelection] = useState(false);
-  const { formState, postSignUp, errorMessage, setErrorMessage } = useContext(FormContext);
+  const { formState, theme, postSignUp, errorMessage, setErrorMessage } =
+    useContext(FormContext);
 
   const onSubmitLogin = () => {
     if (isSelected === true) {
       useSignUpValidations(setErrorMessage, formState, postSignUp);
-      return
+      return;
     }
     setErrorMessage("Click en checkbox.");
   };
@@ -24,13 +25,23 @@ export default function SignUpScreen() {
   }, []);
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={[
+        styles.container,
+        { backgroundColor: theme == "dark" ? "#212121" : "#fff" },
+      ]}
+    >
       <CustomHeader tittle={"Sign Up"} subTittle={"Create an new account"} />
       <View style={styles.form}>
         <Text>{errorMessage}</Text>
         <CustomInput text={"User Name"} input={"UserName"} length={24} />
         <CustomInput text={"Email"} input={"Email"} length={36} />
-        <CustomInput text={"Password"} input={"Password"} password={true} length={24} />
+        <CustomInput
+          text={"Password"}
+          input={"Password"}
+          password={true}
+          length={24}
+        />
         <CustomInput
           text={"Confirm Password"}
           input={"ConfirmPassword"}

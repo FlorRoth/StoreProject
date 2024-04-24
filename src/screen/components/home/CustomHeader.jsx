@@ -1,25 +1,56 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from "react-native";
 import { CustomIMG } from "../ui/CustomIMG.jsx";
+import { FormContext } from "../../../contexts/FormContext.jsx";
+import { useContext } from "react";
+export const CustomHeader = ({
+  tittle,
+  subTittle,
+  flex = 1,
+  center = "",
+  width = "100%",
+  wimg = 240,
+  img = "authLogo",
+  gap = 0,
+}) => {
+  const { theme } = useContext(FormContext);
 
-export const CustomHeader = ({ tittle, subTittle, flex = 1, center = "", width = "100%", wimg = 240, img = "authLogo", gap = 0 }) => {
   return (
-    <View style={[styles.header, { gap: gap, }]}>
+    <View
+      style={[
+        styles.header,
+        { gap: gap, backgroundColor: theme == "dark" ? "#212121" : "#fff" },
+      ]}
+    >
       <CustomIMG width={wimg} height={wimg} img={img} />
-      <View style={[styles.textBox, {
-        flex: flex,
-        alignItems: center,
-        justifyContent: center,
-      }]}>
-        <Text style={styles.text}>{tittle}</Text>
-        <Text style={[styles.subText, {
-          width: width,
-        }]}>
+      <View
+        style={[
+          styles.textBox,
+          {
+            flex: flex,
+            alignItems: center,
+            justifyContent: center,
+          },
+        ]}
+      >
+        <Text
+          style={[styles.text, { color: theme == "dark" ? "#aaa" : "black" }]}
+        >
+          {tittle}
+        </Text>
+        <Text
+          style={[
+            styles.subText,
+            {
+              width: width,
+            },
+          ]}
+        >
           {subTittle}
         </Text>
       </View>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   header: {

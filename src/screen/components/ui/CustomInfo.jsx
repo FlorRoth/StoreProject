@@ -1,12 +1,32 @@
 import { StyleSheet, Text, View } from "react-native";
-
-
+import { useContext } from "react";
+import { FormContext } from "../../../contexts/FormContext";
 export const CustomInfo = ({ left, right }) => {
+  const { theme } = useContext(FormContext);
 
   return (
-    <View style={styles.customInfo}>
-      <Text style={styles.left}>{left}</Text>
-      <Text style={styles.right}>{right}</Text>
+    <View
+      style={[
+        styles.customInfo,
+        { backgroundColor: theme == "dark" ? "#212121" : "white" },
+      ]}
+    >
+      <Text
+        style={[
+          styles.left,
+          { color: theme == "dark" ? "#f2f8ff" : "#212121" },
+        ]}
+      >
+        {left}
+      </Text>
+      <Text
+        style={[
+          styles.right,
+          { color: theme == "dark" ? "#f2f8ff" : "#212121" },
+        ]}
+      >
+        {right}
+      </Text>
     </View>
   );
 };

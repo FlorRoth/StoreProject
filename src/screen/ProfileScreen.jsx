@@ -8,14 +8,20 @@ import { CustomIMG } from "./components/ui/CustomIMG";
 import { CustomSetting } from "./components/ui/CustomSetting";
 
 export default function ProfileScreen() {
-  const { state, getUserData, logout, setErrorMessage } = useContext(FormContext);
+  const { state, theme, toggleTheme, getUserData, logout, setErrorMessage } =
+    useContext(FormContext);
 
   useEffect(() => {
     getUserData();
   }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView
+      style={[
+        styles.container,
+        { backgroundColor: theme == "dark" ? "#212121" : "white" },
+      ]}
+    >
       {state.isLoading ? (
         <Spinner />
       ) : (
@@ -30,24 +36,35 @@ export default function ProfileScreen() {
           </View>
 
           <View>
-            <Text style={styles.setting}>Settings</Text>
+            <Text
+              style={[
+                styles.setting,
+                { color: theme == "dark" ? "#f2f8ff" : "#212121" },
+              ]}
+            >
+              Settings
+            </Text>
             <View style={styles.borderBox}>
               <CustomSetting
                 textL={"Language"}
                 textR={"English"}
                 arrow={true}
                 img="global"
+                onClick={() => null}
               />
               <CustomSetting
                 textL={"Notification"}
                 buttonSwitch={true}
                 img="campana"
+                onClick={() => null}
               />
               <CustomSetting
-                textL={"Drack Mode"}
-                textR={"off"}
+                textL={"Dark Mode"}
+                textR={theme == "dark" ? "on" : "off"}
                 buttonSwitch={true}
+                onClick={() => toggleTheme()}
                 img="luna"
+                currentState={theme == "dark"}
               />
               <CustomSetting textL={"Language"} arrow={true} img="pregunta" />
             </View>
