@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { ProductContext } from "../contexts/ProductContext";
 import { FormContext } from "../contexts/FormContext";
-
+import { CustomIMG } from "./components/ui/CustomIMG";
 import { useContext, useEffect, useState } from "react";
 
 import { CarouselCategories } from "./components/home/carouselCategories";
@@ -52,17 +52,10 @@ export const HomeScreen = () => {
               Welcome to,
             </Text>
             <Text style={[styles.subTitle]}>KWIK-E-MART</Text>
-            <Image
-              style={{
-                width: "100%",
-                height: 150,
-                borderRadius: 200,
-                shadowRadius: 20,
-                shadowColor: "white",
-                shadowOpacity: 1,
-              }}
-              source={require("../../assets/Logo.png")}
-            />
+
+            <View style={styles.logo}>
+              <CustomIMG width={"100%"} height={240} img={"authLogo"} />
+            </View>
 
             <Text
               style={[
