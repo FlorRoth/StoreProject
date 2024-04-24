@@ -11,27 +11,41 @@ import {
 import { productsStyles } from "../styles/productsStyles";
 import { globalStyles } from "../styles/globalStyles";
 import { ProductContext } from "../contexts/ProductContext";
-
+import { FormContext } from "../contexts/FormContext";
 export default function Products() {
   const { state, getProducts, toggleFavorite } = useContext(ProductContext);
 
   useEffect(() => {
     init();
   }, []);
+  const { theme } = useContext(FormContext);
 
   const init = async () => {
     getProducts();
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "white", paddingHorizontal: 10}}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: theme == "dark" ? "#212121" : "white",
+        paddingHorizontal: 10,
+      }}
+    >
       {state.isLoading ? (
         <ActivityIndicator size="large" color="#000000" />
       ) : (
         <View style={productsStyles.productsContainer}>
           <View>
             <View style={styles.header}>
-              <Text style={globalStyles.titleStyle}>Productos</Text>
+              <Text
+                style={[
+                  globalStyles.titleStyle,
+                  { color: theme == "dark" ? "#f2f8ff" : "#212121" },
+                ]}
+              >
+                Productos
+              </Text>
             </View>
             <FlatList
               contentContainerStyle={productsStyles.listProductsContainer}

@@ -19,6 +19,7 @@ import RenderStars from "./components/renders/RenderStars";
 import RenderProductSizes from "./components/renders/RenderProductSizes";
 import Spinner from "./components/ui/Spinner";
 import { CustomButton } from "./components/ui/CustomButton";
+import { FormContext } from "../contexts/FormContext";
 export default ProductItem = ({ route }) => {
   const { item } = route.params;
   const [quantity, setQuantity] = useState(1);
@@ -26,6 +27,7 @@ export default ProductItem = ({ route }) => {
   const { state, toggleFavorite } = useContext(ProductContext);
   const { state: stateCart, addToCart } = useContext(CartContext);
   const navigation = useNavigation();
+  const { theme } = useContext(FormContext);
 
   if (!item) {
     navigation.navigate("PageNotFound");
@@ -48,21 +50,26 @@ export default ProductItem = ({ route }) => {
 
   const handleAddToCart = (product, quantity) => {
     addToCart(product, quantity);
- 
-    Alert.alert('','Product added to cart successfully!', [
+
+    Alert.alert("", "Product added to cart successfully!", [
       {
-        text: 'Continue shopping',
-        onPress: () => navigation.navigate('Products'),
+        text: "Continue shopping",
+        onPress: () => navigation.navigate("Products"),
       },
       {
-        text: 'Cancel',
-        style: 'cancel',
-      }
-    ]); 
+        text: "Cancel",
+        style: "cancel",
+      },
+    ]);
   };
 
   return (
-    <View style={productsStyles.productItemcontainer}>
+    <View
+      style={[
+        productsStyles.productItemcontainer,
+        { backgroundColor: theme == "dark" ? "#212121" : "white" },
+      ]}
+    >
       {state.isLoading ? (
         <Spinner />
       ) : (
@@ -96,11 +103,23 @@ export default ProductItem = ({ route }) => {
         </View>
       )}
 
-      <View style={productsStyles.productDescriptionContainer}>
+      <View
+        style={[
+          productsStyles.productDescriptionContainer,
+          { backgroundColor: theme == "dark" ? "#212121" : "white" },
+        ]}
+      >
         <ScrollView>
           <View style={globalStyles.containerTitle}>
             <View style={{ paddingTop: 15 }}>
-              <Text style={productsStyles.productItemTitle}>{item.title}</Text>
+              <Text
+                style={[
+                  productsStyles.productItemTitle,
+                  { color: theme == "dark" ? "#f2f8ff" : "#212121" },
+                ]}
+              >
+                {item.title}
+              </Text>
 
               <View
                 style={{
@@ -110,12 +129,22 @@ export default ProductItem = ({ route }) => {
                 }}
               >
                 <View style={{ marginTop: 10 }}>
-                  <Text style={productsStyles.productDescription}>
+                  <Text
+                    style={[
+                      productsStyles.productDescription,
+                      { color: theme == "dark" ? "#f2f8ff" : "#212121" },
+                    ]}
+                  >
                     {item.category}
                   </Text>
                   <View style={productsStyles.starContainer}>
                     {RenderStars(item.rating.rate)}
-                    <Text style={{ fontSize: 12 }}>
+                    <Text
+                      style={{
+                        fontSize: 12,
+                        color: theme == "dark" ? "#f2f8ff" : "#212121",
+                      }}
+                    >
                       ({item.rating.count} Review)
                     </Text>
                   </View>
@@ -132,7 +161,12 @@ export default ProductItem = ({ route }) => {
                     </TouchableOpacity>
                   </View>
                   <Text
-                    style={{ fontSize: 12, fontWeight: "700", marginTop: 5 }}
+                    style={{
+                      fontSize: 12,
+                      fontWeight: "700",
+                      marginTop: 5,
+                      color: theme == "dark" ? "#f2f8ff" : "#212121",
+                    }}
                   >
                     Avaliable in stock
                   </Text>
@@ -148,18 +182,42 @@ export default ProductItem = ({ route }) => {
             />
           )}
           <View style={{ paddingTop: 10 }}>
-            <Text style={productsStyles.productItemTitle}>Description</Text>
+            <Text
+              style={[
+                productsStyles.productItemTitle,
+                { color: theme == "dark" ? "#f2f8ff" : "#212121" },
+              ]}
+            >
+              Description
+            </Text>
             <View style={{ marginTop: 10 }}>
-              <Text style={productsStyles.productDescription}>
+              <Text
+                style={[
+                  productsStyles.productDescription,
+                  { color: theme == "dark" ? "#f2f8ff" : null },
+                ]}
+              >
                 {item.description}
               </Text>
             </View>
           </View>
         </ScrollView>
         <View style={productsStyles.addToCartContainer}>
-          <View style={{ flex: 1, marginTop: 5}}>
-            <Text style={{ fontSize: 10, color: "#AAAAAA" }}>Total Price</Text>
-            <Text style={productsStyles.productPrice}>
+          <View style={{ flex: 1, marginTop: 5 }}>
+            <Text
+              style={{
+                fontSize: 10,
+                color: theme == "dark" ? "#f2f8ff" : "#212121",
+              }}
+            >
+              Total Price
+            </Text>
+            <Text
+              style={[
+                productsStyles.productPrice,
+                { color: theme == "dark" ? "#f2f8ff" : "#212121" },
+              ]}
+            >
               $ {item.price.toFixed(2)}
             </Text>
           </View>
@@ -178,7 +236,6 @@ export default ProductItem = ({ route }) => {
             />
             <Text style={productsStyles.addToCartButtonText}>Add To Cart</Text>
           </TouchableOpacity>
-
         </View>
       </View>
     </View>

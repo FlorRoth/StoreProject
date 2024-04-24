@@ -1,24 +1,44 @@
 import React from "react";
-import {
-  View,
-  StyleSheet,
-  Text,
-  FlatList,
-  Pressable,
-} from "react-native";
+import { View, StyleSheet, Text, FlatList, Pressable } from "react-native";
 import { CarouselCategoriesCards } from "./carouselCategoriesCards";
 import { ProductContext } from "../../../contexts/ProductContext";
 import { useNavigation } from "@react-navigation/native";
-
+import { FormContext } from "../../../contexts/FormContext";
+import { useContext } from "react";
 export const CarouselCategories = ({ name, dataProduct }) => {
+  const { theme } = useContext(FormContext);
+
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <Pressable style={styles.title}
+    <View
+      style={[
+        styles.container,
+        {
+          backgroundColor: theme == "dark" ? "#212121" : "white",
+          shadowColor: theme == "dark" ? "white" : "black",
+        },
+      ]}
+    >
+      <Pressable
+        style={styles.title}
         onPress={() => navigation.navigate("Categories", { item: name })}
       >
-        <Text style={styles.text}>{name.toUpperCase()}</Text>
-        <Text style={styles.text}>VIEW ALL</Text>
+        <Text
+          style={[
+            styles.text,
+            { color: theme == "dark" ? "#f2f8ff" : "#212121" },
+          ]}
+        >
+          {name.toUpperCase()}
+        </Text>
+        <Text
+          style={[
+            styles.text,
+            { color: theme == "dark" ? "#f2f8ff" : "#212121" },
+          ]}
+        >
+          VIEW ALL
+        </Text>
       </Pressable>
 
       <FlatList
@@ -36,10 +56,10 @@ export const CarouselCategories = ({ name, dataProduct }) => {
 };
 
 const styles = StyleSheet.create({
-  title:{
-    flexDirection:'row',
+  title: {
+    flexDirection: "row",
     justifyContent: "space-between",
-    width:'100%',
+    width: "100%",
   },
   container: {
     padding: 5,

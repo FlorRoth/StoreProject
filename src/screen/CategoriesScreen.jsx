@@ -1,4 +1,4 @@
-import { useContext, useEffect} from "react";
+import { useContext, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,12 +11,14 @@ import { globalStyles } from "../styles/globalStyles";
 import { ProductContext } from "../contexts/ProductContext";
 import { useNavigation } from "@react-navigation/native";
 import { RenderProductsItem } from "./components/products/CustomProductsRenderItem";
-
+import { FormContext } from "../contexts/FormContext";
 export default Categories = ({ route }) => {
   const { item } = route.params;
   const navigation = useNavigation();
   const { state, getProducts, getCategories, toggleFavorite } =
     useContext(ProductContext);
+
+  const { theme } = useContext(FormContext);
 
   useEffect(() => {
     init();
@@ -32,18 +34,39 @@ export default Categories = ({ route }) => {
     return products.filter((producto) => producto.category === categorie);
   };
   return (
-    <View style={{ flex: 1, backgroundColor: "white", paddingHorizontal: 10}}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: theme == "dark" ? "#212121" : "white",
+        paddingHorizontal: 10,
+      }}
+    >
       {state.isLoading ? (
         <ActivityIndicator size="large" color="#000000" />
       ) : (
-        <View style={productsStyles.productItemcontainer}>
+        <View
+          style={[
+            productsStyles.productItemcontainer,
+            { backgroundColor: theme == "dark" ? "#212121" : "white" },
+          ]}
+        >
           <View>
             <View style={styles.header}>
-              <Text style={globalStyles.titleStyle}>Products by {item} </Text>
+              <Text
+                style={[
+                  globalStyles.titleStyle,
+                  { color: theme == "dark" ? "white" : "#212121" },
+                ]}
+              >
+                Products by {item}{" "}
+              </Text>
             </View>
 
             <FlatList
-              contentContainerStyle={productsStyles.listProductsContainer}
+              contentContainerStyle={[
+                productsStyles.listProductsContainer,
+                { backgroundColor: theme == "dark" ? "#212121" : "#white" },
+              ]}
               data={productsByCategorie(item)}
               horizontal={false}
               numColumns={2}
