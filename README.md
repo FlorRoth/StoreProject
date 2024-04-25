@@ -50,8 +50,8 @@ To login use our Registered users:
 1) Make sure you have the Expo Go app installed on your mobile device. You can find it in the App Store (IOS) or in the Google Play Store (Android).
 2) Open the Expo Go app on your device.
 3) Scan the following QR code with your device's camera:
-* **Android:** https://expo.dev/preview/update?message=android%20preview&updateRuntimeVersion=1.0.0&createdAt=2024-04-17T14%3A41%3A24.105Z&slug=exp&projectId=32c1522f-e949-4fe7-a313-732fe37871bb&group=7b3c3ec8-6c26-4e0b-adc1-35a83cebd31a
-* **IOS:** https://expo.dev/preview/update?message=ios%20preview&updateRuntimeVersion=1.0.0&createdAt=2024-04-17T14%3A42%3A36.692Z&slug=exp&projectId=32c1522f-e949-4fe7-a313-732fe37871bb&group=44b84dcd-7d4c-4fc4-a060-8c2148d9aadf
+* **Android:** https://expo.dev/preview/update?message=preview%20android%20v2&updateRuntimeVersion=1.0.0&createdAt=2024-04-25T20%3A55%3A07.290Z&slug=exp&projectId=32c1522f-e949-4fe7-a313-732fe37871bb&group=33bcd11d-cd16-4b53-9aa5-70319d2f5716
+* **IOS:** https://expo.dev/preview/update?message=preview%20ios%20v2&updateRuntimeVersion=1.0.0&createdAt=2024-04-25T20%3A54%3A32.080Z&slug=exp&projectId=32c1522f-e949-4fe7-a313-732fe37871bb&group=d8dd1768-55b1-4d20-845f-ccc5122cb1e3
 4) Once the QR code is scanned, the app will automatically load on your device. This may take a few seconds
 
 
